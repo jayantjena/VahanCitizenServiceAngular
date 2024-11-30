@@ -1,0 +1,35 @@
+.breadcrumb-nav {
+    & {
+      list-style: none;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+  
+    li {
+        display: inline-block;          /* display list in a row */
+        padding-left: 5%;
+  
+      /* Display chevron before each link */
+      &:before {
+        content: " > ";
+        margin: 0 6px;
+      }
+  
+      /* Don't display chevron after the first link */
+      &:first-child:before {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+  
+
+.breadcrumb-nav a {
+    color: #45768b;
+    text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+    color: white;
+}

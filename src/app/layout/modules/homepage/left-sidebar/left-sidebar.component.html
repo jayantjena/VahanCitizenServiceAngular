@@ -1,0 +1,98 @@
+<div class="inner-column">
+    <div class="tabs">
+        <div class="tabby-tab">
+            <input type="radio" id="tab-1" name="tabby-tabs" checked>
+            <label class="skew-25" for="tab-1"> {{'Vehicle' | translate}} {{'RegnNo' |
+                translate}}</label>
+            <div class="tabby-content">
+                <form [formGroup]="stateRTOForm" (ngSubmit)="proceed();isSubmitted= false">
+                    <div class="mb-3">
+                        <mat-form-field>
+                            <mat-label>{{'RegnNo' | translate}} </mat-label>
+                            <input matInput placeholder="Enter Registration No." formControlName="RegnNo">
+                            <mat-error *ngIf="stateRTOForm.hasError('RegnNo') && !stateRTOForm.hasError('required')">
+                                {{'PleasevalidRegnNo' | translate}}.
+                            </mat-error>
+                            <mat-error *ngIf="stateRTOForm.hasError('required')">
+                                {{'RegnNoreqr' | translate}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                        <mat-checkbox class="privacy-font top-space" [checked]="checked"
+                            (change)="checkprivacypolicy($event)">
+                            <mat-label class="mat-subtitle-2"> {{'IAccept' |translate}} <a class="red"
+                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportPrivacyPolicyv4_12.12.2022.pdf">Privacy
+                                    Policy</a> and <a class="red"
+                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportTermsofServicev4_12.12.2022.pdf">Terms
+                                    of Service</a> {{'forProcessing' | translate}} </mat-label>
+                        </mat-checkbox>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mb-3 center">
+                        <button [disabled]="isDisableProceesBtn" type="submit"
+                            class="theme-btn btn-style-one dark-line-two hover-light"><span
+                                class="btn-title">{{'Proceed_leftSidebar' | translate}}</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="tabby-tab">
+            <input type="radio" id="tab-2" name="tabby-tabs">
+            <label class="skew-25" for="tab-2"> {{'Registering' | translate}} {{'Authority' |
+                translate}}</label>
+            <div class="tabby-content">
+                <form [formGroup]="stateRTOForm"
+                    (ngSubmit)="proceed(selectedgroupState.value,selectedgroupRTO.value);isSubmitted= false">
+                    <div class="mb-3">
+                        <mat-form-field>
+                            <mat-label>-- {{'selectState_leftSidebar' | translate}}
+                                --</mat-label>
+                            <mat-select disableRipple (selectionChange)="onChangeState($event)"
+                                  #selectedgroupState formControlName="stateName">
+                                <input class="myInput" matInput type="text" (keyup)="search($any($event.target).value)"
+                                    placeholder="search">
+                                <mat-divider></mat-divider>
+                                <mat-option *ngFor="let state of stateListFilter" [value]="state.stateCode">
+                                    {{state.descr}}({{state.stateCode}})
+                                </mat-option>
+                            </mat-select>
+                            <mat-error> {{'chooeStateName' | translate}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                        <mat-form-field>
+                            <mat-label>-- {{'selectRTO_leftSidebar' | translate}}
+                                --</mat-label>
+                            <mat-select disableRipple #selectedgroupRTO formControlName="RTOName">
+                                <input class="myInput" matInput type="text"
+                                    (keyup)="searchOffice($any($event.target).value)" placeholder="search">
+                                <mat-divider></mat-divider>
+                                <mat-option *ngFor="let office of officeListFilter" [value]="office.offCd">
+                                    {{office.offName | initialCapitalize}}({{office.offCd}})</mat-option>
+                            </mat-select>
+                            <mat-error>{{resourceObj?.chooeRTOName}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                        <mat-checkbox class="privacy-font top-space" [checked]="checked"
+                            (change)="checkprivacypolicy($event)">
+                            <mat-label class="mat-subtitle-2"> {{'IAccept' |translate}} <a class="red"
+                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportPrivacyPolicyv4_12.12.2022.pdf">Privacy
+                                    Policy</a> and <a class="red"
+                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportTermsofServicev4_12.12.2022.pdf">Terms
+                                    of Service</a> {{'forProcessing' | translate}} </mat-label>
+                        </mat-checkbox>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mb-3 center">
+                        <button [disabled]="isDisableProceesBtn" type="submit"
+                            class="theme-btn btn-style-one dark-line-two hover-light"><span
+                                class="btn-title">{{'Proceed_leftSidebar' | translate}}</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

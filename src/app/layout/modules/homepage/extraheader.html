@@ -1,0 +1,91 @@
+
+<div class="top-header display-none">
+    <div class="top-header-left">
+        <ul>
+            <li class="vertical-base-align"><a href="https://india.gov.in/hi" target="morth"
+                    class="top-header-font-size">{{bharatsrkr}} </a></li>
+            <li class="vertical-base-align">
+                <a href="https://india.gov.in/hi" target="morth" class="top-header-font-size">{{govtInd}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="top-header-right right-space">
+        <ul>
+            <li class="red font-bold vertical-base-align" style="width: 60%">
+                <marquee behavior="scroll" direction="left" scrolldelay="10" scrollamount="3"
+                    onmouseover="this.stop();" onmouseout="this.start();" class="top-header-font-size">
+                    Please Click <img [src]="usermanualImage" alt="User_Manual" /> {{marquee}}
+                </marquee>
+            </li>
+            <li class="top-header-font-size">
+                <select name="language" id="">
+                    <option value="en">English</option>
+                    <option value="hi">HIndi</option>
+                </select>
+            </li>
+            <li>
+                <font size="2"><a href="javascript:void(0);" onclick="changemysize(14);"
+                        class="top-header-font-size">
+                        A<sup><b>+</b></sup></a></font>
+            </li>
+            <li>
+                <font size="2"><a href="javascript:void(0);" onclick="changemysize(12);"
+                        class="top-header-font-size">A</a>
+                </font>
+            </li>
+            <li>
+                <font size="2"><a href="javascript:void(0);" onclick="changemysize(10);"
+                        class="top-header-font-size">A<sup>-</sup></a></font>
+            </li>
+            <li>
+                <a [routerLink]="['/faq']">
+                    <img src="assets/img/homepage-images/icon-faq.png" alt="icon-faq"
+                        class="top-headeer-icon-width">
+                </a>
+            </li>
+            <li>
+                <a (click)="openusermanualdlg()" style="cursor: pointer;">
+                    <img src="assets/img/homepage-images/User_Manual.png" alt="User_Manual"
+                        class="top-headeer-icon-width">
+                </a>
+            </li>
+            <!-- <li>
+            <a>
+                <img src="assets/img/homepage-images/instruction.png" alt="instruction" class="top-headeer-icon-width">
+            </a>
+        </li> -->
+            <li>
+                <a>
+                    <img src="assets/img/homepage-images/contactUS.png" alt="contactUS"
+                        class="top-headeer-icon-width">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="nav-container navigation-background display-none" [ngStyle]="setNavBackground()">
+    <div class="ui-grid ui-grid-responsive">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-10">
+                <div class="inline-section vertical-right-divider">
+                    <a routerLink="#">
+                        <img src="assets/img/homepage-images/VahanCitzenServicelogo.png"
+                            alt="VahanCitzenServicelogo" width="100%" height="auto" />
+                    </a>
+                </div>
+                <div class="inline-section" style="vertical-align: middle">
+                    <div class="slogan-name">{{sadakparivahanhindi}}</div>
+                    <div class="slogan-name">
+                        {{roadtransport}}
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-col-2">
+                <div class="right-space">
+                    <img class="respswachh-bharat-logo" src="assets/img/homepage-images/digital-india-logo.png"
+                        alt="digital-india-logo" width="100%" height="auto" style="vertical-align: middle;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

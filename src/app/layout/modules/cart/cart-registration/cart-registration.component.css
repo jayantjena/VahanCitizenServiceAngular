@@ -1,0 +1,9 @@
+.form input[type='text'],input[type='password'],
+input[type='email'], select
+{
+  box-shadow: 0px 1px 1px rgb(105, 105, 105);
+}
+
+
+
+

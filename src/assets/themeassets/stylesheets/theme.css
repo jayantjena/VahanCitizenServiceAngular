@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Theme 2*/
+/*Left Nav*/
+.theme2 .main-header .sidebar-toggle{background:#6d6e71;padding:8px 8px}
+.theme2.skin-red .main-sidebar{background-color:#6d6e71 !important}
+.theme2.skin-red .sidebar-menu > li > .treeview-menu, .theme2.skin-red .sidebar-menu > li.active .treeview-menu li a{background:#414042 !important}
+.theme2.skin-red .treeview-menu>li.active>a, .theme2.skin-red .treeview-menu>li>a:hover{color:#fff}
+.theme2.skin-red .sidebar a{color:#fff}
+.theme2 .main-header .nav-btn-graphic{fill:rgba(255,255,255, .5)}
+.theme2 .main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active{background:#6d6e71}
+.theme2 .sidebar-menu > li:hover > a, .theme2 .sidebar-menu > li.active > a{background:#414042;border-right:#414042}
+.theme2.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a span:not(.pull-right), .theme2.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu{background:#414042}
+.theme2 .sidebar-menu > li > .theme2 .treeview-menu{background:#414042}
+.theme2 .skin-red .sidebar a{color:#fff}
+.theme2 .sidebar-menu > li > a > i .icon-graphic{fill:#fff}
+
+/*header*/
+.theme2.skin-red .main-header .navbar{background:#dc2129}
+.theme2 .dd-container > .moduleIcon .fa{color:#fff}
+.theme2 .dd-selected > label{color:#fff}
+.theme2.skin-red .main-header .navbar .nav>li>a{color:#fff}
+.theme2.skin-red .main-header .navbar .nav>li>a:hover{color:#414042}
+.theme2 .main-header .bell-graphic, .theme2 .main-header .setting-graphic, .theme2 .main-header .support-graphic {fill: #fff}
+.theme2.skin-red .main-header .navbar .nav>li>a:hover svg path, .theme2.skin-red .main-header .navbar .nav>li>a:active svg path, .theme2.skin-red .main-header .navbar .nav>li>a:focus svg path{fill:#414042 !important}
+.theme2.skin-red .main-header .navbar .nav>li>a:focus .alertActive, .theme2.skin-red .main-header .navbar .nav>li>a:hover .alertActive{border:solid 2px #414042;background:#fff}
+.theme2.skin-red .main-header .navbar .nav>li>a .alertActive{border:solid 2px #fff;background:#df373d}
+.theme2.skin-red .main-header .themeSettings{background:#fff}   
+.theme2.skin-red .main-header .themeSettings:after{color:#df373d}
+.theme2 .main-header .sidebar-toggle{border-right:0}
+.theme2.sidebar-mini.sidebar-collapse .main-header .navbar{margin-left:40px}
+.theme2 .main-header .logo .logo-lg path{fill:#fff}
+/*Ends Theme 2*/
+
+/*Theme 3*/
+/*Left Nav*/
+.theme3 .main-header .sidebar-toggle{background:#f68220;padding:8px 8px}
+.theme3.skin-red .main-sidebar{background-color:#f68220 !important}
+.theme3.skin-red .sidebar-menu > li > .treeview-menu, .theme3.skin-red .sidebar-menu > li.active .treeview-menu li a{background:#faa74a !important}
+.theme3.skin-red .treeview-menu>li.active>a, .theme2.skin-red .treeview-menu>li>a:hover{color:#fff}
+.theme3.skin-red .sidebar a{color:#fff}
+.theme3 .main-header .nav-btn-graphic{fill:rgba(255,255,255, .5)}
+.theme3 .main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active{background:#f68220}
+.theme3 .sidebar-menu > li:hover > a, .theme3 .sidebar-menu > li.active > a{background:#faa74a;border-right:#faa74a}
+.theme3.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a span:not(.pull-right), .theme3.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu{background:#faa74a}
+.theme3 .sidebar-menu > li > .theme3 .treeview-menu{background:#faa74a}
+.theme3 .skin-red .sidebar a{color:#fff}
+.theme3 .sidebar-menu > li > a > i .icon-graphic{fill:#fff}
+.theme3 .main-header .sidebar-toggle{border-right:0}
+.theme3.sidebar-mini.sidebar-collapse .main-header .navbar{margin-left:40px}
+
+/*header*/
+.theme3.skin-red .main-header .navbar{background:#faa74a}
+.theme3 .dd-container > .moduleIcon .fa{color:#fff}
+.theme3 .dd-selected > label{color:#fff}
+.theme3.skin-red .main-header .navbar .nav>li>a{color:#fff}
+.theme3.skin-red .main-header .navbar .nav>li>a:hover{color:#414042}
+.theme3 .main-header .bell-graphic, .theme3 .main-header .setting-graphic, .theme3 .main-header .support-graphic{fill:#fff}
+.theme3.skin-red .main-header .navbar .nav>li>a:hover svg path, .theme3.skin-red .main-header .navbar .nav>li>a:active svg path, .theme3.skin-red .main-header .navbar .nav>li>a:focus svg path{fill:#414042 !important}
+.theme3.skin-red .main-header .navbar .nav>li>a:focus .alertActive, .theme3.skin-red .main-header .navbar .nav>li>a:hover .alertActive{border:solid 2px #414042;background:#fff}
+.theme3.skin-red .main-header .navbar .nav>li>a .alertActive{border:solid 2px #fff;background:#faa74a}
+.theme3.skin-red .main-header .themeSettings{background:#fff}
+.theme3.skin-red .main-header .themeSettings:after{color:#faa74a}
+.theme3 .main-header .logo .logo-lg path{fill:#fff}
+/*Ends Theme 3*/
+
+/*Theme 4*/
+/*Left Nav*/
+.theme4 .main-header .sidebar-toggle{background:#39b54a;padding:8px 8px}
+.theme4.skin-red .main-sidebar{background-color:#39b54a !important}
+.theme4.skin-red .sidebar-menu > li > .treeview-menu, .theme4.skin-red .sidebar-menu > li.active .treeview-menu li a{background:#87d170 !important}
+.theme4.skin-red .treeview-menu>li.active>a, .theme2.skin-red .treeview-menu>li>a:hover{color:#fff}
+.theme4.skin-red .sidebar a{color:#fff}
+.theme4 .main-header .nav-btn-graphic{fill:rgba(255,255,255, .5)}
+.theme4 .main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active{background:#39b54a}
+.theme4 .sidebar-menu > li:hover > a, .theme4 .sidebar-menu > li.active > a{background:#87d170;border-right:#87d170}
+.theme4.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a span:not(.pull-right), .theme4.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu{background:#87d170}
+.theme4 .sidebar-menu > li > .theme4 .treeview-menu{background:#87d170}
+.theme4 .skin-red .sidebar a{color:#fff}
+.theme4 .sidebar-menu > li > a > i .icon-graphic{fill:#fff}
+.theme4 .main-header .sidebar-toggle{border-right:0}
+.theme4.sidebar-mini.sidebar-collapse .main-header .navbar{margin-left:40px}
+
+/*header*/
+.theme4.skin-red .main-header .navbar{background:#87d170}
+.theme4 .dd-container > .moduleIcon .fa{color:#fff}
+.theme4 .dd-selected > label{color:#fff}
+.theme4.skin-red .main-header .navbar .nav>li>a{color:#fff}
+.theme4.skin-red .main-header .navbar .nav>li>a:hover{color:#414042}
+.theme4 .main-header .bell-graphic, .theme4 .main-header .setting-graphic, .theme4 .main-header .support-graphic{fill:#fff}
+.theme4.skin-red .main-header .navbar .nav>li>a:hover svg path, .theme4.skin-red .main-header .navbar .nav>li>a:active svg path, .theme4.skin-red .main-header .navbar .nav>li>a:focus svg path{fill:#414042 !important}
+.theme4.skin-red .main-header .navbar .nav>li>a:focus .alertActive, .theme4.skin-red .main-header .navbar .nav>li>a:hover .alertActive{border:solid 2px #414042;background:#fff}
+.theme4.skin-red .main-header .navbar .nav>li>a .alertActive{border:solid 2px #fff;background:#87d170}
+.theme4.skin-red .main-header .themeSettings{background:#fff}
+.theme4.skin-red .main-header .themeSettings:after{color:#87d170}
+.theme4 .main-header .logo .logo-lg path{fill:#fff}
+/*Ends Theme 4*/
+
+/*Theme 5*/
+/*Left Nav*/
+.theme5 .main-header .sidebar-toggle{background:#436199;padding:8px 8px}
+.theme5.skin-red .main-sidebar{background-color:#436199 !important}
+.theme5.skin-red .sidebar-menu > li > .treeview-menu, .theme5.skin-red .sidebar-menu > li.active .treeview-menu li a{background:#1281dd !important}
+.theme5.skin-red .treeview-menu>li.active>a, .theme2.skin-red .treeview-menu>li>a:hover{color:#fff}
+.theme5.skin-red .sidebar a{color:#fff}
+.theme5 .main-header .nav-btn-graphic{fill:rgba(255,255,255, .5)}
+.theme5 .main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active{background:#436199}
+.theme5 .sidebar-menu > li:hover > a, .theme5 .sidebar-menu > li.active > a{background:#6981ad;border-right:#6981ad}
+.theme5.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a span:not(.pull-right), .theme5.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu{background:#1281dd}
+.theme5 .sidebar-menu > li > .theme5 .treeview-menu{background:#1281dd}
+.theme5 .skin-red .sidebar a{color:#fff}
+.theme5 .sidebar-menu > li > a > i .icon-graphic{fill:#fff}
+.theme5 .main-header .sidebar-toggle{border-right:0}
+.theme5.sidebar-mini.sidebar-collapse .main-header .navbar{margin-left:40px}
+
+/*header*/
+.theme5.skin-red .main-header .navbar{background:#1281dd}
+.theme5 .dd-container > .moduleIcon .fa{color:#fff}
+.theme5 .dd-selected > label{color:#fff}
+.theme5.skin-red .main-header .navbar .nav>li>a{color:#fff}
+.theme5.skin-red .main-header .navbar .nav>li>a:hover{color:#414042}
+.theme5 .main-header .bell-graphic, .theme5 .main-header .setting-graphic, .theme5 .main-header .support-graphic{fill:#fff}
+.theme5.skin-red .main-header .navbar .nav>li>a:hover svg path, .theme5.skin-red .main-header .navbar .nav>li>a:active svg path, .theme5.skin-red .main-header .navbar .nav>li>a:focus svg path{fill:#414042 !important}
+.theme5.skin-red .main-header .navbar .nav>li>a:focus .alertActive, .theme5.skin-red .main-header .navbar .nav>li>a:hover .alertActive{border:solid 2px #414042;background:#fff}
+.theme5.skin-red .main-header .navbar .nav>li>a .alertActive{border:solid 2px #fff;background:#1281dd}
+.theme5.skin-red .main-header .themeSettings{background:#fff}
+.theme5.skin-red .main-header .themeSettings:after{color:#1281dd}
+.theme5 .main-header .logo .logo-lg path{fill:#fff}
+/*Ends Theme 5*/
+

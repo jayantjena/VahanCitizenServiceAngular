@@ -1,0 +1,427 @@
+<!-- <app-logo-header></app-logo-header> -->
+<div class="header-lower header-bg">
+  <div class="auto-container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="logo-box">
+          <div class="logo">
+            <a [routerLink]="['']" title=""><img src="./assets/img/homepage-images/logo-v.png" alt="" title=""></a>
+            <div class="ministry-logo">
+              <a href="#" title="">
+                <h6>{{resourceObj.govtInd}}</h6>
+                <h4> {{resourceObj.roadtransport}}</h4>
+              </a>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="logo-right">
+          <img alt="" src="./assets/img/homepage-images/g20-logo.png" title="G-20 Logo">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ***** Header Area Start ***** -->
+<div class="header-lower">
+  <div class="auto-container">
+    <div class="main-box">
+      <div class="nav-outer">
+        <nav class="nav main-menu">
+          <ul class="navigation">
+            <!-- class="current" -->
+            <li (click)="getHomePage()"><a [routerLink]="['']">{{'home' | translate}}</a></li>
+            <li class="dropdown"><a href="#">Services</a>
+              <ul>
+                <li class="dropdown"><a href="#">Tax/Fee Services</a>
+                  <ul>
+                    <li *ngIf="menuListServicedata?.istax"><a (click)="payTax('payYrTax')">Pay Your Tax</a></li>
+                    <li *ngIf="menuListServicedata?.isenvtax"><a
+                        (click)="payTax('CA')">Environment/Green/Passenger/Goods Tax</a></li>
+                    <li *ngIf="menuListServicedata?.isbalancefee"><a (click)="payTax('pbff')">Pay Balance Fees Fine(For
+                        Fitness Applications)</a></li>
+                    <li *ngIf="menuListServicedata?.istaxrecovery"><a (click)="payTax('payYrTax')">Adjustment/Tax
+                        Recovery</a></li>
+                    <li *ngIf="menuListServicedata?.istaxinstallment"><a (click)="payTax('CA')">Pay Your Tax
+                        Installment</a></li>
+                    <li *ngIf="menuListServicedata?.isbalancefee"><a (click)="payTax('pbff')">Pay Compounding Fee (For
+                        blacklisted Vehicles)</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#">RC Related Services</a>
+                  <ul>
+                    <li><a (click)="payTax('CA')">Apply for Change of Address, Hypothecation </a></li>
+                    <li class="dropdown"><a (click)="payTax('TO')">Transfer of Ownership</a>
+                      <ul>
+                        <li class="dropdown"><a href="#">Sale </a>
+                          <ul>
+                            <li><a href="#">Application by Seller </a></li>
+                            <li><a href="#">Application by Buyer </a></li>
+                          </ul>
+                        </li>
+                        <li><a (click)="payTax('CA')">Succession </a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><a (click)="payTax('CA')">Change of Address</a>
+                      <ul>
+                        <li><a href="#">BH Series </a></li>
+                        <li><a href="#">State Series </a></li>
+                      </ul>
+                    </li>
+                    <li><a (click)="payTax('HPA')">Hypothecation Addition</a></li>
+                    <li><a (click)="payTax('HPT')">Hypothecation Termination</a></li>
+                    <li><a (click)="payTax('DPC')">Application for No Objection Certificate</a></li>
+                    <li><a (click)="payTax('HPC')">Cancellation of NOC</a></li>
+                    <li class="dropdown"><a (click)="payTax('HPC')">Re-Assignment Of Vehicle</a>
+                      <ul>
+                        <li><a href="#">To State Series </a></li>
+                        <li><a href="#">To Vintage Series </a></li>
+                      </ul>
+                    </li>
+                    <li><a (click)="payTax('HPA')">RC Cancellation</a></li>
+                    <li><a (click)="payTax('HPT')">RC Surrender</a></li>
+                    <li><a (click)="payTax('DPC')">RC Release</a></li>
+                    <li><a (click)="payTax('HPA')">Renewal of Registration</a></li>
+                    <li><a (click)="payTax('HPT')">RC Redispatch</a></li>
+                    <li><a (click)="payTax('DPC')">Re-Schedule Renewal of Fitness Application</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#">Vehicle Related Services</a>
+                  <ul>
+                    <li><a (click)="payTax('TO')">Application for Fitness Certificate</a></li>
+                    <li><a (click)="payTax('CA')">Alteration Of Vehicle</a></li>
+                    <li><a (click)="payTax('HPA')">Conversion Of Vehicle</a></li>
+                    <li><a (click)="payTax('HPC')">Non Use Intimation </a></li>
+                    <li><a (click)="payTax('HPT')">Early withdrawal of Non-use vehicle</a></li>
+                    <li><a (click)="payTax('DPC')">Non Use Continuation </a></li>
+                    <li><a (click)="payTax('DPC')">Non-Use Shifting </a></li>
+                    <li><a (click)="payTax('DPC')">Retention of Registration Mark </a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#">Apply for Certificates</a>
+                  <ul>
+                    <li><a (click)="payTax('TO')">Duplicate Fitness Certificate</a></li>
+                    <li><a (click)="payTax('CA')">RC Particulars</a></li>
+                    <li><a (click)="payTax('HPA')">Conversion of Paper RC to Smart Card</a></li>
+                    <li><a (click)="payTax('HPC')">Application for Certified Copy of Permit</a></li>
+                    <li><a (click)="payTax('HPT')">Tax Clearance Certificate </a></li>
+                    <li><a (click)="payTax('DPC')">Duplicate RC</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#">Additional Services</a>
+                  <ul>
+                    <li><a (click)="payTax('TO')">Update EKYC Details</a></li>
+                    <li><a (click)="payTax('CA')">Update Mobile Number (Using Aadhaar(RTO visit not required))</a></li>
+                    <li><a (click)="payTax('HPA')">Update Mobile Number (Verification & Approval will be done at
+                        RTO)</a></li>
+                    <li><a (click)="payTax('HPC')">Withdrawal of Application </a></li>
+                    <li><a (click)="payTax('HPT')">Application for Self Backlog</a></li>
+                    <li><a (click)="payTax('DPC')">Know your Vehicle Details</a></li>
+                    <li><a (click)="payTax('DPC')">Advertisement on Vehicle </a></li>
+                    <li><a (click)="payTax('HPT')">Add Nominee Details</a></li>
+                    <li class="dropdown"><a (click)="payTax('DPC')">Issue /Renew of Authorization to second hand
+                        dealer</a>
+                      <ul>
+                        <li><a href="#">List Of Authorized Second Hand Dealers </a></li>
+                        <li><a href="#">Intimation to RTO on delivering of vehicle to authorized registered vehicle
+                            dealer </a></li>
+                        <li><a href="#">Intimation to RTO on taking back vehicle from authorized registered vehicle
+                            dealer </a></li>
+                      </ul>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#">Appointment </a>
+              <ul>
+                <li><a href="#">Book Appointment</a></li>
+                <li><a href="#">Re-print Appointment Slip</a></li>
+                <li><a href="#">Reschedule Appointment</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#">Other Services</a>
+              <ul>
+                <li><a href="#">Online Permit</a></li>
+                <li><a href="#">Online Trade Certificate</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#">Download Document</a>
+              <ul>
+                <li><a href="#">Print Fitness Certificate </a></li>
+                <li><a href="#">Print Registration Certificate</a></li>
+                <li><a href="#">Tax Book Certificate</a></li>
+                <li><a href="#">RC Print(Form 23)</a></li>
+                <li><a href="#">Print No Objection Certificate(NOC)/NO Dues</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#">Status</a>
+              <ul>
+                <li><a href="#">Know Your Application Status</a></li>
+                <li><a href="#">Transaction History Status</a></li>
+                <li class="dropdown"><a href="#">Add Pending/Modify Uploaded documents</a>
+                  <ul>
+                    <li><a href="#">Upload Pending Documents</a></li>
+                    <li><a href="#">Modify Uploaded Documents</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Re-verify Payment Transaction</a></li>
+                <li class="dropdown"><a href="#">Reprint Receipt Form</a>
+                  <ul>
+                    <li><a href="#">Reprint Receipt</a></li>
+                    <li><a href="#">Print the pre-filled service based SR form</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Esign By Buyer</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="outer-box">
+        <div class="btn-box">
+          <a [routerLink]="['/portal-login']" class="theme-btn btn-style-one dark-line-two hover-light">
+            <span class="btn-title">{{'RTOLogin4confg' | translate}}</span>
+          </a>
+        </div>
+        <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-menu">
+  <div class="menu-backdrop"></div>
+
+  <nav class="menu-box">
+    <div class="upper-box">
+      <div class="nav-logo">
+        <img alt="" src="./assets/img/homepage-images/logo-v.png" title="Logo">
+      </div>
+      <div class="close-btn"><i class="icon fa fa-times"></i></div>
+    </div>
+    <ul class="navigation clearfix">
+      <li (click)="getHomePage()"><a [routerLink]="['']">{{'home' | translate}}</a></li>
+      <li class="dropdown"><a href="#">Services</a>
+        <ul>
+          <li class="dropdown"><a href="#">Tax/Fee Services</a>
+            <ul>
+              <li *ngIf="menuListServicedata?.istax"><a (click)="payTax('payYrTax')">Pay Your Tax</a></li>
+              <li *ngIf="menuListServicedata?.isenvtax"><a (click)="payTax('CA')">Environment/Green/Passenger/Goods
+                  Tax</a></li>
+              <li *ngIf="menuListServicedata?.isbalancefee"><a (click)="payTax('pbff')">Pay Balance Fees Fine(For
+                  Fitness Applications)</a></li>
+              <li *ngIf="menuListServicedata?.istaxrecovery"><a (click)="payTax('payYrTax')">Adjustment/Tax
+                  Recovery</a></li>
+              <li *ngIf="menuListServicedata?.istaxinstallment"><a (click)="payTax('CA')">Pay Your Tax
+                  Installment</a></li>
+              <li *ngIf="menuListServicedata?.isbalancefee"><a (click)="payTax('pbff')">Pay Compounding Fee (For
+                  blacklisted Vehicles)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#">RC Related Services</a>
+            <ul>
+              <li><a (click)="payTax('CA')">Apply for Change of Address, Hypothecation </a></li>
+              <li class="dropdown"><a (click)="payTax('TO')">Transfer of Ownership</a>
+                <ul>
+                  <li class="dropdown"><a href="#">Sale </a>
+                    <ul>
+                      <li><a href="#">Application by Seller </a></li>
+                      <li><a href="#">Application by Buyer </a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="payTax('CA')">Succession </a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown"><a (click)="payTax('CA')">Change of Address</a>
+                <ul>
+                  <li><a href="#">BH Series </a></li>
+                  <li><a href="#">State Series </a></li>
+                </ul>
+              </li>
+              <li><a (click)="payTax('HPA')">Hypothecation Addition</a></li>
+              <li><a (click)="payTax('HPT')">Hypothecation Termination</a></li>
+              <li><a (click)="payTax('DPC')">Application for No Objection Certificate</a></li>
+              <li><a (click)="payTax('HPC')">Cancellation of NOC</a></li>
+              <li class="dropdown"><a (click)="payTax('HPC')">Re-Assignment Of Vehicle</a>
+                <ul>
+                  <li><a href="#">To State Series </a></li>
+                  <li><a href="#">To Vintage Series </a></li>
+                </ul>
+              </li>
+              <li><a (click)="payTax('HPA')">RC Cancellation</a></li>
+              <li><a (click)="payTax('HPT')">RC Surrender</a></li>
+              <li><a (click)="payTax('DPC')">RC Release</a></li>
+              <li><a (click)="payTax('HPA')">Renewal of Registration</a></li>
+              <li><a (click)="payTax('HPT')">RC Redispatch</a></li>
+              <li><a (click)="payTax('DPC')">Re-Schedule Renewal of Fitness Application</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#">Vehicle Related Services</a>
+            <ul>
+              <li><a (click)="payTax('TO')">Application for Fitness Certificate</a></li>
+              <li><a (click)="payTax('CA')">Alteration Of Vehicle</a></li>
+              <li><a (click)="payTax('HPA')">Conversion Of Vehicle</a></li>
+              <li><a (click)="payTax('HPC')">Non Use Intimation </a></li>
+              <li><a (click)="payTax('HPT')">Early withdrawal of Non-use vehicle</a></li>
+              <li><a (click)="payTax('DPC')">Non Use Continuation </a></li>
+              <li><a (click)="payTax('DPC')">Non-Use Shifting </a></li>
+              <li><a (click)="payTax('DPC')">Retention of Registration Mark </a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#">Apply for Certificates</a>
+            <ul>
+              <li><a (click)="payTax('TO')">Duplicate Fitness Certificate</a></li>
+              <li><a (click)="payTax('CA')">RC Particulars</a></li>
+              <li><a (click)="payTax('HPA')">Conversion of Paper RC to Smart Card</a></li>
+              <li><a (click)="payTax('HPC')">Application for Certified Copy of Permit</a></li>
+              <li><a (click)="payTax('HPT')">Tax Clearance Certificate </a></li>
+              <li><a (click)="payTax('DPC')">Duplicate RC</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#">Additioal Services</a>
+            <ul>
+              <li><a (click)="payTax('TO')">Update EKYC Details</a></li>
+              <li><a (click)="payTax('CA')">Update Mobile Number (Using Aadhaar(RTO visit not required))</a></li>
+              <li><a (click)="payTax('HPA')">Update Mobile Number (Verification & Approval will be done at
+                  RTO)</a></li>
+              <li><a (click)="payTax('HPC')">Withdrawal of Application </a></li>
+              <li><a (click)="payTax('HPT')">Application for Self Backlog</a></li>
+              <li><a (click)="payTax('DPC')">Know your Vehicle Details</a></li>
+              <li><a (click)="payTax('DPC')">Advertisement on Vehicle </a></li>
+              <li><a (click)="payTax('HPT')">Add Nominee Details</a></li>
+              <li class="dropdown"><a (click)="payTax('DPC')">Issue /Renew of Authorization to second hand
+                  dealer</a>
+                <ul>
+                  <li><a href="#">List Of Authorized Second Hand Dealers </a></li>
+                  <li><a href="#">Intimation to RTO on delivering of vehicle to authorized registered vehicle
+                      dealer </a></li>
+                  <li><a href="#">Intimation to RTO on taking back vehicle from authorized registered vehicle
+                      dealer </a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown"><a href="#">Appointment </a>
+        <ul>
+          <li><a href="#">Book Appointment</a></li>
+          <li><a href="#">Re-print Appointment Slip</a></li>
+          <li><a href="#">Reschedule Appointment</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a href="#">Other Services</a>
+        <ul>
+          <li><a href="#">Online Permit</a></li>
+          <li><a href="#">Online Trade Certificate</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a href="#">Download Document</a>
+        <ul>
+          <li><a href="#">Print Fitness Certificate </a></li>
+          <li><a href="#">Print Registration Certificate</a></li>
+          <li><a href="#">Tax Book Certificate</a></li>
+          <li><a href="#">RC Print(Form 23)</a></li>
+          <li><a href="#">Print No Objection Certificate(NOC)/NO Dues</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a href="#">Status</a>
+        <ul>
+          <li><a href="#">Know Your Application Status</a></li>
+          <li><a href="#">Transaction History Status</a></li>
+          <li class="dropdown"><a href="#">Add Pending/Modify Uploaded documents</a>
+            <ul>
+              <li><a href="#">Upload Pending Documents</a></li>
+              <li><a href="#">Modify Uploaded Documents</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Re-verify Payment Transaction</a></li>
+          <li class="dropdown"><a href="#">Reprint Receipt Form</a>
+            <ul>
+              <li><a href="#">Reprint Receipt</a></li>
+              <li><a href="#">Print the pre-filled service based SR form</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Esign By Buyer</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="contact-list-one light">
+      <li>
+        <i class="icon lnr-icon-phone-handset"></i> <span class="title">Call Now</span>
+        <div class="text"><a href="tel:+91-120-4925505">+91-120-4925505</a></div>
+      </li>
+      <li>
+        <i class="icon lnr-icon-envelope1"></i> <span class="title">Send Email</span>
+        <div class="text"><a href="#"><span>helpdesk-vahan[at]gov[dot]in</span></a></div>
+      </li>
+      <li>
+        <i class="icon lnr-icon-map-marker"></i> <span class="title">Timings</span>
+        <div class="text">06:00 AM - 12:00 Midnight</div>
+      </li>
+    </ul>
+    <ul class="social-links">
+      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+  </nav>
+</div>
+
+
+<!-- mega menu start -->
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand" href="#">Brand</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Services
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <h6 class="dropdown-header">Category 1</h6>
+                                  <a class="dropdown-item" href="#">Service 1</a>
+                                  <a class="dropdown-item" href="#">Service 2</a>
+                              </div>
+                              <div class="col-md-4">
+                                  <h6 class="dropdown-header">Category 2</h6>
+                                  <a class="dropdown-item" href="#">Service 3</a>
+                                  <a class="dropdown-item" href="#">Service 4</a>
+                              </div>
+                              <div class="col-md-4">
+                                  <h6 class="dropdown-header">Category 3</h6>
+                                  <a class="dropdown-item" href="#">Service 5</a>
+                                  <a class="dropdown-item" href="#">Service 6</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav> -->

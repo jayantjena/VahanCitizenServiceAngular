@@ -1,0 +1,13 @@
+
+.light .session-time-out{
+    border: 1px solid #dcdada;
+    border-radius: 8px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+.dark .session-time-out{
+    border: 1px solid #302f2f;
+    border-radius: 8px;
+    padding: 10px;
+    background: #222222;
+}

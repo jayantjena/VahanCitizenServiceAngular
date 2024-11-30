@@ -1,0 +1,70 @@
+ 
+<!-- <div class="modal-dialog" style="width: 450px;" *ngIf="data.status!==400">
+	<div class="modal-content" style="border-top: 4px solid #d45732;
+	  border-bottom: 4px solid #d45732;">
+		<div style="background: #f9bfae;
+		font-size: 18px;
+		font-weight: bold;
+		color: #ab2c2a;
+		padding: 5px;">
+			<i class="fa fa-exclamation-triangle" style="font-size: 18px; color: red;
+					"></i> An error has occurred!
+		</div>
+		<div class="modal-body center-position" style="background: linear-gradient(45deg
+		, #d8afaf, transparent);">
+			<div style="font-weight: bold;
+color: #3c3b3b;
+font-size: 1.1em;">
+			  <p *ngIf="data.status">
+					<b>Status Code: {{data.status}}</b>
+				</p> -->
+				<!-- <p>
+					Something went wrong!
+				</p>
+				<p class="error-message">
+					{{data?.message}}
+				</p>
+			</div>
+			<div>
+				<button mat-dialog-close class="btn btn-danger" data-dismiss="modal"
+				 (click)="window.location.reload()">OK</button>
+			</div>
+		</div>
+	</div>
+</div> -->  
+
+
+
+<div class="modal-dialog" style="width: 450px;" *ngIf="data.status==400">
+	<div class="modal-content" style="border-top: 4px solid #d45732;
+	  border-bottom: 4px solid #d45732;">
+		<div style="background: #f9bfae;
+		font-size: 18px;
+		font-weight: bold;
+		color: #ab2c2a;
+		padding: 5px;">
+			<i class="fa fa-exclamation-triangle" style="font-size: 18px; color: red;
+					"></i> Error!
+		</div>
+		<div class="modal-body center-position" style="background: linear-gradient(45deg
+		, #d8afaf, transparent);">
+			<div style="font-weight: bold;
+color: #3c3b3b;
+font-size: 1.1em;">
+				<!-- <p *ngIf="data.status">
+					<b>Status Code: {{data.status}}</b>
+				</p> -->
+				<p>
+					Something went wrong!
+				</p>
+				<p class="error-message">
+					{{data?.message}}
+				</p>
+			</div>
+			<div>
+				<button mat-dialog-close class="btn btn-danger" data-dismiss="modal"
+				 (click)="reload()">OK</button>
+			</div>
+		</div>
+	</div>
+</div>

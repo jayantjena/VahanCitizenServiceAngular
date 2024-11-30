@@ -1,0 +1,48 @@
+<div class="header-top">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="top-left">
+                <ul class="list-style-one">
+                    <li><i class="fa fa-mobile"></i> <a [routerLink]="['/screen-reader']">{{'ScreenReaderAccess' | translate}}</a></li>
+                    <li class="fontResize">
+                        <div class="textResizeWrapper bg-text-color">
+                            <input type="button" name="font_large" value="A+" (click)="increase($event)" id="zoom-in" title="Large Font Size"
+                            class="fontScaler large font-larger">
+                        <input type="button" name="font_normal" value="A"  (click)="resetFontSize()" id="zoom-auto" title="Normal Font Size"
+                            class="fontScaler normal font-normal">
+                        <input type="button" name="font_small" value="A-" (click)="decrease($event)" id="zoom-out" title="Small Font Size"
+                            class="fontScaler font-large current">
+                        </div>
+                       </li>
+                    <li class="fontResize">
+                        <div class="textResizeWrapper">
+                           <input type="button" name="normal" (click)="changeTheme('light')" value="" id="normal"
+                                title="Standard View" class="contrastChanger normal current">
+                            <input type="button" name="wob" (click)="changeTheme('dark')" value="" id="wob"
+                                title="High Contrast View" class="contrastChanger wob">
+                            <input type="button" name="changeTheme" (click)="changeTheme('reddish')" value="" id="reddish"
+                                title="Reddish Contrast View" class="contrastChanger reddish">
+                            <input type="button" name="changeTheme" (click)="changeTheme('brown')" value="" id="brown"
+                                title="Brown Contrast View" class="contrastChanger brown">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-right">
+                <ul class="social-icon-one">
+                    <li><a [routerLink]="['/site-map']" title="site map"><i class="fas fa-sitemap"></i></a></li>
+                    <li><a [routerLink]="['/faq']" title="FAQ"><i class="fa-solid fa-question-circle"></i></a></li>
+                    <li><a [routerLink]="['#']" (click)="openusermanualdlg()" title="User Manual"><i class="fa-solid fa-book-open"></i></a></li>
+                    <li><a href="#" title="Contact US"><i class="fa-solid fa-user-circle"></i></a></li>
+                    <li> 
+                        <select name="language" id="" class="form-control" #selectedLang
+                            (change)="switchLanguage(selectedLang.value)">
+                            <option *ngFor="let language of translate.getLangs()" [value]="language"
+                                [selected]="language===translate.currentLang">{{language}}</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

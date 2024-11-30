@@ -1,0 +1,233 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <!-- <div class="col-md-8 login-size8"> -->
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <!-- <div class="col-md-7 login-header-padding">
+                           <h2 clas="login-header-padding"> <span style="color: #fff;">WelCome to</span>
+                                <br>
+                                <div style="color: rgb(2, 102, 141);">Vahan Citizen Service</div>
+                            </h2>
+                            <span class="registred-now"> Not registered with VAHAN CITIZEN SERVICES account? </span>
+                            <a [routerLink]="['/user-registration']"
+                                style="color: rgb(57, 147, 250);text-shadow: 0 0 black;cursor: pointer;"> Register
+                                Now</a>
+                        </div> -->
+            <div class="col-md-6">
+                <div class="wrapper">
+                    <div class="rec-prism">
+                        <!-- <div class="face face-front"> -->
+                        <div class="face" *ngIf="isloginModal">
+                            <div class="content">
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="datatable-panel center-position">
+                                            <img height="80px" src="assets/img/login_icon/usericon.png" alt="loin-icon">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center-position">
+                                    <h2>{{'CartLogin' | translate}}</h2>
+                                </div>
+                                <form class="form" #loginForm="ngForm" novalidate (ngSubmit)="onSubmit();" autocomplete="off">
+                                    <div class="ui-grid-row top-space">
+                                        <div class="ui-grid-col-12">
+                                            <!-- <label for="inputApplNo" class="field-label-mandate">User Name</label> -->
+                                            <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="credentials.user_name" name="uname" placeholder="{{'EnterUserName' | translate}}" (keypress)="spaceNotAllowed($event)" #uname="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && uname.invalid }"
+                                                required>
+                                                
+                                            <div class="invalid-feedback" *ngIf="loginForm.submitted && uname.invalid">
+                                                <p *ngIf="uname.errors?.['required']">{{'UserNameisrequired' | translate}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row top-space">
+                                        <div class="ui-grid-col-12">
+                                            <!-- <label for="inputApplNo" class="field-label-mandate">Pasword</label> -->
+                                            <!-- <input mdbInput type="text" name="applNo" class="form-control" id="inputApplNo" placeholder="Enter Application No." [(ngModel)]="applNo" #applNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required> -->
+                                            <input type="password" mdbInput class="form-control" [(ngModel)]="credentials.password" name="pwdrd" placeholder="{{'EnterPasword' | translate}}" (keypress)="spaceNotAllowed($event)" #pwdrd="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && pwdrd.invalid }"
+                                                required>
+                                            <div class="invalid-feedback" *ngIf="loginForm.submitted && pwdrd.invalid">
+                                                <p *ngIf="pwdrd.errors?.['required']">{{'Passwordisrequired' | translate}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row top-space">
+                                        <div class="ui-grid-col-12">
+                                            <label class="field-label-mandate">{{'EnterCaptcha' | translate}} </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-grid-row">
+                                        <div class="ui-grid-col-5">
+                                            <input type="text" [(ngModel)]="generatedCpatcha" class="form-control" name="captch" [ngStyle]="{'color': '#336cfe','background':'#c8cbed', 'padding': '3px', 'font-size': '150%', 'letter-spacing':'2px','font-family':'cursive'}" readonly required>
+                                        </div>
+                                        <div class="ui-grid-col-2 center-position refresh-button">
+                                            <i class="fa fa-refresh" (click)="refreshCaptha()"></i>
+                                        </div>
+                                        <div class="ui-grid-col-5">
+                                            <input type="text" class="form-control" name="fillcaptch" [(ngModel)]="fillcaptcha" #fillcaptch="ngModel" style="height: 45px;" maxlength="6" [ngClass]="{ 'is-invalid': loginForm.submitted && fillcaptch.invalid }" appCustomValidator="captch" required>
+
+                                            <div class="invalid-feedback" *ngIf="loginForm.submitted && fillcaptch.invalid">
+                                                <p *ngIf="fillcaptch.errors?.['required']">{{'Captchaisrequired' | translate}}
+                                                </p>
+                                            </div>
+                                            <div *ngIf="invalidcaptcha">
+                                                <p class="captcha-validation">{{'EnterValidCaptcha' | translate}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="center-position">
+                                        <button class="btn btn-primary" type="submit">{{'Login' | translate}}</button>
+                                        <!-- <button mat-button class="btn-success" type="reset" (click)="loginForm.reset(); reset()">Reset</button>   -->
+                                        <button class="btn btn-danger" type="button" (click)="redirectHome()"> {{'home' | translate}}
+                                                    </button>
+                                    </div>
+                                    <!-- <div class="field-wrapper">
+                                                    <input type="submit" onclick="showThankYou()">
+                                                </div> -->
+                                    <span class="psw" (click)="showForgotPassword()">{{'ForgotPassword' | translate}} 
+                                                </span>
+                                    <span class="psw">
+                                                    <a  (click)="regnPage()"
+                                style="color: rgb(57, 147, 250);text-shadow: 0 0 black;cursor: pointer;"> {{'RegisterNow' | translate}}</a>
+                                                </span>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="form" *ngIf="isForgotModal">
+                            <div class="face">
+                                <div class="content">
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="datatable-panel center-position">
+                                                <img height="80px" src="assets/img/login_icon/usericon.png" alt="loin-icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="center-position">
+                                        <h2>{{'ForgotPassword' | translate}}</h2>
+                                    </div>
+
+                                    <!-- <div class="top-space">
+                                                    <div>Enter your email so we can send you a reset link for your password</div>
+                                                </div> -->
+                                    <form #forgotOTPForm="ngForm" novalidate (ngSubmit)="forgotOTPForm.form.valid && forgotpassword(forgotOTPForm)" autocomplete="off">
+                                        <div class="ui-grid-row">
+                                            <div class="ui-grid-col-12">
+                                                <input type="text" name="mobileNo" #mobileNo="ngModel" [(ngModel)]="mobile_No" mdbInput class="form-control" placeholder="{{'MobileNoofVehicleOwner' | translate}}" (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [disabled]="reGenerateOTPBtn?true:false"
+                                                    [ngClass]="{ 'is-invalid': forgotOTPForm.submitted && mobileNo.invalid }" required pattern="^((\\+91-?)|0)?[0-9]{10}$" minlength="10" maxlength="10">
+                                                <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && mobileNo.invalid">
+                                                    <p *ngIf="mobileNo.errors?.['required']">{{'MobileNoisrequired' | translate}}
+                                                    </p>
+                                                    <p *ngIf="mobileNo.errors?.['pattern']">{{'MobileNoshouldbe10digits' | translate}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row top-space">
+                                            <div class="col-md-12 center-position">
+                                                <button class="btn btn-primary" type="submit" *ngIf="!reGenerateOTPBtn" (click)="generateOTPforForgotPassword(mobileNo.value);">{{'GenerateOTP' | translate}}</button>
+                                                <button class="btn btn-primary" type="submit" *ngIf="reGenerateOTPBtn" (click)="generateOTPforForgotPassword(mobileNo.value);">{{'Re-GenerateOTP(LastChance)' | translate}}</button>
+                                            </div>
+                                        </div>
+
+                                        <div *ngIf="reGenerateOTPBtn">
+                                            <div class="ui-grid-row top-space">
+                                                <div class="ui-grid-col-12">
+                                                    <input type="text" name="genOTP" #genOTP="ngModel" [(ngModel)]="gen_OTP" mdbInput class="form-control" placeholder="{{'GenerateOTP' | translate}}" (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [ngClass]="{ 'is-invalid': forgotOTPForm.submitted && genOTP.invalid }"
+                                                        required>
+                                                    <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && genOTP.invalid">
+                                                        <p *ngIf="genOTP.errors?.['required']">{{'OTPisrequired' | translate}}
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ui-grid-row top-space">
+                                                <div class="ui-grid-col-6">
+                                                    <input type="password" name="pswd" #pswd="ngModel" [(ngModel)]="password" mdbInput class="form-control" placeholder="{{'EnterPasword' | translate}}" (keypress)="spaceNotAllowed($event);" [ngClass]="{ 'is-invalid': forgotOTPForm.submitted && pswd.invalid }"
+                                                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                                    <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && pswd.invalid">
+                                                        <p *ngIf="pswd.errors?.['required']">{{'Passwordisrequired' | translate}}</p>
+                                                    </div>
+                                                    <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && pswd.invalid">
+                                                        <p *ngIf="pswd.errors?.['pattern']">*({{'Passwordmustcontain1Numeric1Uppercase1Lowercase1SpecialCharcter' | translate}}) </p>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-grid-col-6">
+                                                    <input type="password" name="cnfrmpass" #cnfrmpass="ngModel" [(ngModel)]="confirmPass" mdbInput class="form-control" placeholder="{{'CnfirmPassword' | translate}}" (keypress)="spaceNotAllowed($event);" [ngClass]="{ 'is-invalid': forgotOTPForm.submitted && cnfrmpass.invalid }"
+                                                        required pattern="{{pswd.value}}">
+                                                    <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && cnfrmpass.invalid">
+                                                        <p *ngIf="cnfrmpass.errors?.['required']">{{'ConfirmPasswordisrequired' | translate}}</p>
+                                                    </div>
+                                                    <div class="invalid-feedback" *ngIf="forgotOTPForm.submitted && cnfrmpass.invalid">
+                                                        <p *ngIf="cnfrmpass.errors?.['pattern']">{{'ConfirmPasswordmustbesameaspassword' | translate}} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="red" style="font-size: 11px">*(Password must contain 1
+                                                        Numeric, 1 Uppercase, 1 Lowercase, 1 Special Charcter)</div> -->
+                                            <div class="row top-space">
+                                                <div class="col-md-12 center-position">
+                                                    <button type="submit" class="btn btn-primary">{{'Update' | translate}}</button>
+                                                    <button type="reset" class="btn btn-info" (click)="reset()">{{'Reset' | translate}}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <span class="singin" (click)="showLogin()">{{'AlreadyuserSignin' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="face face-right">
+                                        <app-registration></app-registration>
+                                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #passChngSuccDialog>
+            <div class="align-padding-left-right" style="padding: 25px;">
+                <div class="center-position">
+                    <img src="assets/img/homepage-images/success.gif" width="50" alt="success">
+                </div>
+                <mat-dialog-content>
+                    <p class="font-bold"> {{resForgotData}}. </p>
+                </mat-dialog-content>
+
+                <mat-dialog-actions>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 center-position">
+                            <button class="btn btn-primary" matDialogClose class="btn-primary" (click)="succDialogClose()"> {{'Ok' | translate}} </button>
+                        </div>
+                    </div>
+                </mat-dialog-actions>
+            </div>
+        </ng-template>
+
+        <ng-template #forgotOtpDialog>
+            <div class="align-padding-left-right center-position" style="text-align: center !important; padding: 25px;">
+                <mat-dialog-content>
+                    <h6><i class="fa fa-cog fa-spin fa-3x fa-fw otp-spin-icon"></i> {{'YourOTPhasbeengeneratebelow' | translate}} </h6>
+                    <div class="otp-font-color">{{mobileListData}}</div>
+                    <div class="row top-space">
+                        <div class="col-md-12 center-position">
+                            <button class="btn btn-primary" matDialogClose>  {{'Ok' | translate}} 
+                                        </button>
+                        </div>
+                    </div>
+                </mat-dialog-content>
+            </div>
+        </ng-template>
+
+
+        <script src="src/assets/js/registration.js"></script>
+    </div>
+</div>

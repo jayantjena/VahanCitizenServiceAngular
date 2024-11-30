@@ -1,0 +1,121 @@
+<!-- <app-services-menu></app-services-menu> -->
+<!-- <router-outlet></router-outlet> -->
+
+
+<!-- <app-reprintreceipt style="display: none;"></app-reprintreceipt> -->
+<form action="" target="_blank">
+    <div class="datatable-panel" style="margin: 0 auto !important;">
+        <div class="top-space" style="border: 1px solid #c6c7c5;border-radius: 20px;background: #f6f9fd;">
+            <mat-tab-group>
+                <mat-tab label=" OWNER INFORMATION">
+                    <ng-template matTabContent>
+                        <div class="row top-space">
+                            <div class="col-md-4">
+                                <label class="field-label field-label-mandate "> Owner Name </label>
+                                <span class="red">{{changeAddressDto.owner_name}}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="field-label field-label-mandate "> Father's Name </label>
+                                <span class="red">{{changeAddressDto.f_name}}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="field-label field-label-mandate "> Present Address </label>
+                                <span class="red">{{changeAddressDto.c_add1}} {{changeAddressDto.c_add2}}
+                                    {{changeAddressDto.c_add3}}</span>
+                            </div>
+                        </div>
+                        <br>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label=" VEHICLE INFORMATION">
+                    <ng-template matTabContent>
+                        <div class="row top-space">
+                            <div class="col-md-3">
+                                <label class="field-label field-label-mandate "> Registration No. </label>
+                                <span class="red">{{changeAddressDto.regn_no}}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="field-label field-label-mandate "> Chassis No. </label>
+                                <span class="red">{{changeAddressDto.chasi_no}}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="field-label field-label-mandate "> Engine No. </label>
+                                <span class="red">{{changeAddressDto.eng_no}}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="field-label field-label-mandate "> Registering authority </label>
+                                <span class="red">{{changeAddressDto.off_name}}</span>
+                            </div>
+                        </div>
+                        <br>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+            <br><br>
+        </div>
+
+
+
+
+
+        <div class="headerDuplicate top-space">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <h2>Information about Services for which Application is submitted</h2>
+                </div>
+            </div>
+            <div class="align-padding-left-right login-box-regn-feedback">
+                <table>
+                    <thead>
+                        <th>Sr No.</th>
+                        <th>Purpose description</th>
+                        <th>Servicing authority</th>
+                        <th>Applied On</th>
+                        <th>Total Fees Paid</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of serviceList; index as i ">
+                            <td>{{i}}</td>
+                            <td>{{data.purpose_desc}}</td>
+                            <td>{{data.servie_authority}}</td>
+                            <td>{{data.applied_on}}</td>
+                            <td>{{data.total_fees}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 center-position">
+                <button mat-button class="btn-primary" type="button" (click)="iframeRCDialogOpen()">Upload
+                    Document</button>
+                <button mat-button class="btn-primary" type="button" (click)="printReciept()">RePrint Receipt</button>
+                <button mat-button class="btn-primary" type="button">Final Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- iframe dialog start -->
+<ng-template #iframeReprintReceiptDialog>
+    <div mat-dialog-title class="dialog-title">
+        <header>
+            Reprint Receipt Information
+        </header>
+        <button mat-icon-button aria-label="close dialog" mat-dialog-close style="margin: 0px !important;">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div class="row" style="margin: 0 auto;">
+            <div class="col-md-12 center-position">
+                <div class="red font-bold top-space bottom-space">
+                    <iframe [src]="urlSafe" frameborder='0' allowfullscreen width="600" height="600" style="visibility:visible"></iframe>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+</ng-template>
+<!-- iframe dialog end -->

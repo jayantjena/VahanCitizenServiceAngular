@@ -1,0 +1,954 @@
+<div>
+    <div class="login-scope">
+        <div class="container formCenter">
+            <div class="content-scope">
+                <!---logo scope-->
+
+                <div class="row">
+                    <!--left side scope-->
+                    <div class="col-6 left-side-scope">
+                        <script type="text/javascript">
+                            // 	function mouseHover()
+                            // 	{
+                            // 		document.getElementByID('display_datatable').style.display('none')
+                            // 	}
+
+                            function writeText(txt) {
+                                if (txt === "JK") {
+                                    document.getElementById("abc:jkid").click();
+                                    //alert('fsdfdd');
+                                } else if (txt === "RJ") {
+                                    document.getElementById("abc:rjid").click();
+                                } else if (txt === "HP") {
+                                    document.getElementById("abc:hpid").click();
+                                } else if (txt === "HR") {
+                                    document.getElementById("abc:hrid").click();
+                                } else if (txt === "PB") {
+                                    document.getElementById("abc:pbid").click();
+                                } else if (txt === "UK") {
+                                    document.getElementById("abc:ukid").click();
+                                } else if (txt === "BR") {
+                                    document.getElementById("abc:brid").click();
+                                } else if (txt === "LA") {
+                                    document.getElementById("abc:laid").click();
+                                } else if (txt === "JH") {
+                                    document.getElementById("abc:jhid").click();
+                                } else if (txt === "UP") {
+                                    document.getElementById("abc:upid").click();
+                                } else if (txt === "GJ") {
+                                    document.getElementById("abc:gjid").click();
+                                } else if (txt === "MP") {
+                                    document.getElementById("abc:mpid").click();
+                                } else if (txt === "CG") {
+                                    document.getElementById("abc:cgid").click();
+                                } else if (txt === "MH") {
+                                    document.getElementById("abc:mhid").click();
+                                } else if (txt === "AR") {
+                                    document.getElementById("abc:arid").click();
+                                } else if (txt === "AP") {
+                                    document.getElementById("abc:apid").click();
+                                } else if (txt === "WB") {
+                                    document.getElementById("abc:wbid").click();
+                                } else if (txt === "KA") {
+                                    document.getElementById("abc:kaid").click();
+                                } else if (txt === "OR") {
+                                    document.getElementById("abc:orid").click();
+                                } else if (txt === "TS") {
+                                    document.getElementById("abc:tsid").click();
+                                } else if (txt === "TN") {
+                                    document.getElementById("abc:tnid").click();
+                                } else if (txt === "KL") {
+                                    document.getElementById("abc:klid").click();
+                                } else if (txt === "ML") {
+                                    document.getElementById("abc:mlid").click();
+                                } else if (txt === "AS") {
+                                    document.getElementById("abc:asid").click();
+                                } else if (txt === "NL") {
+                                    document.getElementById("abc:nlid").click();
+                                } else if (txt === "MN") {
+                                    document.getElementById("abc:mnid").click();
+                                } else if (txt === "MZ") {
+                                    document.getElementById("abc:mzid").click();
+                                } else if (txt === "SK") {
+                                    document.getElementById("abc:skid").click();
+                                } else if (txt === "TR") {
+                                    document.getElementById("abc:trid").click();
+                                } else if (txt === "DL") {
+                                    document.getElementById("abc:dlid").click();
+                                } else if (txt === "PY") {
+                                    document.getElementById("abc:pyid").click();
+                                } else if (txt === "GA") {
+                                    document.getElementById("abc:gaid").click();
+                                } else if (txt === "CH") {
+                                    document.getElementById("abc:chid").click();
+                                }
+                            }
+                        </script>
+
+                        <div class="login-background">
+                            <img src="assets/img/homepage-images/India_map_new.png"
+                                style="width: auto; max-width: 100%;height: 100%;" alt="VahanCitzenServicelogo"
+                                class="map-reponsive" usemap="#Map" />
+                            <map name="Map" id="Map">
+                                <area shape="poly" id="HP" class="Himachal_Pradesh outline_none"
+                                    onclick="writeText('HP')" alt="Himachal Pradesh" title="Himachal Pradesh"
+                                    coords="95,67,100,59,107,58,116,61,119,69,117,75,112,81,105,77" href="#"
+                                    (mouseover)="getTotalServices('HP');" (click)="fetchServicesOfStates('HP');" />
+                                <div class="hover_hp">
+                                    <div class="statename">
+                                        <h2>Himachal Pradesh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Himachal_Pradesh.png"
+                                                alt="Himachal_Pradesh" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="JK" class="jammu outline_none" title="Jammu and Kashmir"
+                                    onclick="writeText('JK')" alt="Jammu and Kashmir"
+                                    coords="76,56,71,49,70,39,74,29,59,18,69,7,81,1,91,5,98,12,105,20,108,27,101,34,93,40,100,48,98,55,93,61,85,62"
+                                    href="#" (mouseover)="getTotalServices('JK');"
+                                    (click)="fetchServicesOfStates('JK');" />
+
+                                <div class="hover_jk">
+                                    <div class="statename">
+                                        <h2>Jammu and Kashmir</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/JammuKashmir.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <area shape="poly" id="RJ" class="Raja_sthan outline_none" title="Rajasthan"
+                                    onclick="writeText('RJ')" alt="Rajasthan"
+                                    coords="70,96,67,104,66,111,60,114,56,121,46,128,35,126,34,132,36,138,36,146,41,146,44,153,52,156,58,156,64,160,70,162,71,168,76,170,78,162,82,153,88,150,92,153,98,160,97,148,100,140,107,138,105,129,87,111,76,100"
+                                    href="#" (mouseover)="getTotalServices('RJ');"
+                                    (click)="fetchServicesOfStates('RJ');" />
+                                <div class="hover_rj">
+                                    <div class="statename">
+                                        <h2>Rajasthan</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/rajasthan.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <area shape="poly" id="PB" class="Punjab outline_none" title="Punjab"
+                                    onclick="writeText('PB')" alt="Punjab"
+                                    coords="88,69,85,76,78,84,81,88,88,90,96,90,99,80" href="#"
+                                    (mouseover)="getTotalServices('PB');" (click)="fetchServicesOfStates('PB');" />
+                                <div class="hover_pb">
+                                    <div class="statename">
+                                        <h2>Punjab</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Panjab.png" alt="" />
+                                            <!-- 							<img src="state_map/Panjab.png" /> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <area shape="poly" id="UK" class="Uttrakhand" title="Uttrakhand"
+                                    onclick="writeText('UK')" alt="Uttrakhand"
+                                    coords="122,80,128,81,120,86,122,93,132,100,137,103,138,93,137,84,144,89" href="#"
+                                    (mouseover)="getTotalServices('UK');" (click)="fetchServicesOfStates('UK');" />
+                                <div class="hover_uk">
+                                    <div class="statename">
+                                        <h2>Uttrakhand</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Uttarakhand.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <area shape="poly" id="HR" class="Haryana" alt="Haryana" title="Haryana"
+                                    onclick="writeText('HR')"
+                                    coords="104,97,104,104,105,111,100,114,95,107,87,103,93,98" href="#"
+                                    (mouseover)="getTotalServices('HR');" (click)="fetchServicesOfStates('HR');" />
+
+                                <div class="hover_hr">
+                                    <div class="statename">
+                                        <h2>Haryana</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Haryana.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="LA" class="ladhak" alt="ladhak" title="Ladhak"
+                                    onclick="writeText('LA')"
+                                    coords="113,27,110,35,104,36,104,41,106,46,108,51,114,56,121,51,120,23,127,19,134,26,136,33,132,37,126,39,123,57,130,58,119,31"
+                                    href="#" (mouseover)="getTotalServices('LA');"
+                                    (click)="fetchServicesOfStates('LA');" />
+
+                                <div class="hover_la">
+                                    <div class="statename">
+                                        <h2>Ladhak</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Ladhak.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <area shape="poly" id="BR" class="bihar" alt="bihar" title="Bihar"
+                                    onclick="writeText('BR')"
+                                    coords="220,142,211,142,206,137,192,138,219,147,214,153,208,156,197,158,187,158,177,156,186,152,193,147,187,142"
+                                    href="#" (mouseover)="getTotalServices('BR');"
+                                    (click)="fetchServicesOfStates('BR');" />
+
+                                <div class="hover_br">
+                                    <div class="statename">
+                                        <h2>Bihar</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Bihar.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="JH" class="jharkhand" alt="jharkhand" title="Jharkhand"
+                                    onclick="writeText('JH')"
+                                    coords="181,165,186,170,188,177,192,183,197,186,194,165,200,165,207,166,216,163,224,159,213,169,205,171,199,173,202,180,210,184,204,185"
+                                    href="#" (mouseover)="getTotalServices('JH');"
+                                    (click)="fetchServicesOfStates('JH');" />
+
+                                <div class="hover_jh">
+                                    <div class="statename">
+                                        <h2>Jharkhand</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Jharkhand.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="UP" class="UP" alt="UP" title="Uttar Pradesh"
+                                    onclick="writeText('UP')"
+                                    coords="114,103,117,108,117,115,117,120,117,127,122,130,128,131,133,133,133,138,133,144,131,149,137,149,143,145,147,152,152,149,159,152,165,155,171,156,177,145,173,163,178,150,180,137,178,128,143,114,127,107,134,110,152,119,160,122,167,127,170,132"
+                                    href="#" (mouseover)="getTotalServices('UP');"
+                                    (click)="fetchServicesOfStates('UP');" />
+
+                                <div class="hover_up">
+                                    <div class="statename">
+                                        <h2>Uttar Pradesh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Uttar_Pradesh.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="GJ" class="GJ" alt="GJ" title="Gujarat" onclick="writeText('GJ')"
+                                    coords="29,167,21,168,21,176,26,176,36,176,36,181,31,185,27,190,33,193,32,198,38,202,47,203,49,195,55,192,58,186,64,188,62,194,65,199,67,205,70,194,70,184,77,182,67,174,63,168,56,162,46,161,36,165"
+                                    href="#" (mouseover)="getTotalServices('GJ');"
+                                    (click)="fetchServicesOfStates('GJ');" />
+
+                                <div class="hover_gj">
+                                    <div class="statename">
+                                        <h2>Gujarat</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Gujarat.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="MP" class="MP" alt="MP" title="Madhaya Pradesh"
+                                    onclick="writeText('MP')"
+                                    coords="85,175,83,186,85,191,91,192,97,194,102,197,108,188,114,190,118,195,126,194,132,192,139,192,145,191,151,183,154,177,156,168,161,165,156,158,144,156,134,155,133,163,117,161,117,153,122,147,127,140,119,137,114,141,109,144,107,162,100,167,89,166"
+                                    href="#" (mouseover)="getTotalServices('MP');"
+                                    (click)="fetchServicesOfStates('MP');" />
+
+                                <div class="hover_mp">
+                                    <div class="statename">
+                                        <h2>Madhaya Pradesh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/madhya_pradesh.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="CG" class="CG" alt="CG" title="Chattisgarh"
+                                    onclick="writeText('CG')"
+                                    coords="165,184,161,190,156,192,155,200,151,206,153,217,151,224,150,230,158,228,160,218,164,209,167,200,176,196,176,186,181,180,177,172,170,172"
+                                    href="#" (mouseover)="getTotalServices('CG');"
+                                    (click)="fetchServicesOfStates('CG');" />
+
+                                <div class="hover_cg">
+                                    <div class="statename">
+                                        <h2>Chattisgarh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Chhattisgarh.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="MH" class="MH" alt="MH" title="Maharashtra"
+                                    onclick="writeText('MH')"
+                                    coords="69,217,71,224,69,231,69,239,69,247,72,254,78,248,86,246,97,241,103,237,108,231,111,222,117,219,126,215,132,213,134,219,142,217,142,205,137,199,129,199,120,199,111,199,97,202,91,200,84,199,78,196,77,208"
+                                    href="#" (mouseover)="getTotalServices('MH');"
+                                    (click)="fetchServicesOfStates('MH');" />
+
+                                <div class="hover_mh">
+                                    <div class="statename">
+                                        <h2>Maharashtra</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/maharashtra.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="WB" class="WB" alt="WB" title="West Bengal"
+                                    onclick="writeText('WB')"
+                                    coords="227,164,226,170,220,173,210,177,214,182,218,185,224,188,231,190,236,183,233,177,232,169,228,153,229,133,237,135,243,139,227,143"
+                                    href="#" (mouseover)="getTotalServices('WB');"
+                                    (click)="fetchServicesOfStates('WB');" />
+
+                                <div class="hover_wb">
+                                    <div class="statename">
+                                        <h2>West Bengal</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/west_bengal.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="OR" class="OR" alt="OR" title="Odisha" onclick="writeText('OR')"
+                                    coords="186,194,181,198,181,205,175,206,169,209,175,214,167,219,167,225,165,231,171,228,177,222,184,224,191,221,200,214,207,209,211,205,191,190,200,192,206,190,213,190,210,196"
+                                    href="#" (mouseover)="getTotalServices('OR');"
+                                    (click)="fetchServicesOfStates('OR');" />
+
+                                <div class="hover_or">
+                                    <div class="statename">
+                                        <h2>Odisha</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Odisha.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="KA" class="KA" alt="KA" title="Karnataka"
+                                    onclick="writeText('KA')"
+                                    coords="82,269,83,275,86,283,87,290,89,297,95,299,99,304,107,306,108,297,115,292,83,261,89,256,97,252,107,257,107,241,111,236,113,242,109,248,105,265,100,271,104,279,109,285,89,269"
+                                    href="#" (mouseover)="getTotalServices('KA');"
+                                    (click)="fetchServicesOfStates('KA');" />
+
+                                <div class="hover_ka">
+                                    <div class="statename">
+                                        <h2>Karnataka</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/karnataka.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="AP" class="AP" alt="AP" title="Andhra Pradesh"
+                                    onclick="writeText('AP')"
+                                    coords="117,266,123,266,111,268,111,275,118,280,123,284,127,288,134,287,138,281,136,269,141,260,149,259,158,255,166,248,170,239,180,236,127,258,136,256,142,251,152,247,160,242"
+                                    href="#" (mouseover)="getTotalServices('AP');"
+                                    (click)="fetchServicesOfStates('AP');" />
+
+                                <div class="hover_ap">
+                                    <div class="statename">
+                                        <h2>Andhra Pradesh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Andhra_Pradesh.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="AR" class="AR" alt="AR" title="Arunachal Pradesh"
+                                    onclick="writeText('AR')"
+                                    coords="281,120,288,117,292,109,299,109,310,113,272,122,274,129,279,128,286,128,294,122,302,120,307,119,316,124,322,120,317,115,316,107,308,106,297,116"
+                                    href="#" (mouseover)="getTotalServices('AR');"
+                                    (click)="fetchServicesOfStates('AR');" />
+
+                                <div class="hover_ar">
+                                    <div class="statename">
+                                        <h2>Arunachal Pradesh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Arunachal_Pradesh.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="TN" class="TN" alt="TN" title="Tamil Nadu"
+                                    onclick="writeText('TN')"
+                                    coords="117,306,115,311,109,316,114,324,115,330,116,337,114,343,122,332,126,327,134,318,130,308,136,304,140,297,133,294,126,297,125,303"
+                                    href="#" (mouseover)="getTotalServices('TN');"
+                                    (click)="fetchServicesOfStates('TN');" />
+
+                                <div class="hover_tn">
+                                    <div class="statename">
+                                        <h2>Tamil Nadu</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Tamil_Nadu.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="KL" class="KL" alt="KL" title="Kerala" onclick="writeText('KL')"
+                                    coords="89,307,96,311,97,318,98,324,99,330,104,335,107,341,106,328,102,319" href="#"
+                                    (mouseover)="getTotalServices('KL');" (click)="fetchServicesOfStates('KL');" />
+
+                                <div class="hover_kl">
+                                    <div class="statename">
+                                        <h2>Kerala</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Kerala.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="TS" class="TS" alt="TS" title="Telagana"
+                                    onclick="writeText('TS')"
+                                    coords="123,226,122,231,117,237,117,244,117,251,117,257,123,257,129,253,137,249,143,247,152,244,148,238,140,235,134,226,128,221"
+                                    href="#" (mouseover)="getTotalServices('TS');"
+                                    (click)="fetchServicesOfStates('TS');" />
+
+                                <div class="hover_ts">
+                                    <div class="statename">
+                                        <h2>Telagana</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Telangana.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="ML" class="ML" alt="ML" title="Meghalaya"
+                                    onclick="writeText('ML')" coords="253,148,258,149,267,150,273,151,249,152,262,153"
+                                    href="#" (mouseover)="getTotalServices('ML');"
+                                    (click)="fetchServicesOfStates('ML');" />
+
+                                <div class="hover_ml">
+                                    <div class="statename">
+                                        <h2>Meghalaya</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Meghalaya.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="AS" class="AS" alt="AS" title="Assam" onclick="writeText('AS')"
+                                    coords="252,137,257,137,263,137,271,137,281,137,287,137,291,133,298,128,304,128,248,144,255,144,263,143,272,143,279,145,280,152,279,157,287,143,297,135"
+                                    href="#" (mouseover)="getTotalServices('AS');"
+                                    (click)="fetchServicesOfStates('AS');" />
+
+                                <div class="hover_as">
+                                    <div class="statename">
+                                        <h2>Assam</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Assam.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="NL" class="NL" alt="NL" title="Nagaland"
+                                    onclick="writeText('NL')" coords="296,143,302,137,290,147,297,148,303,144" href="#"
+                                    (mouseover)="getTotalServices('NL');" (click)="fetchServicesOfStates('NL');" />
+
+                                <div class="hover_nl">
+                                    <div class="statename">
+                                        <h2>Nagaland</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/nagaland.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="MN" class="MN" alt="MN" title="Manpiur" onclick="writeText('MN')"
+                                    coords="285,160,290,155,288,166,293,163,296,156" href="#"
+                                    (mouseover)="getTotalServices('MN');" (click)="fetchServicesOfStates('MN');" />
+
+                                <div class="hover_mn">
+                                    <div class="statename">
+                                        <h2>Manpiur</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Manipur.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="MZ" class="MZ" alt="MZ" title="Mizoram" onclick="writeText('MZ')"
+                                    coords="277,168,276,174,276,179,277,185,282,190,285,179,284,170" href="#"
+                                    (mouseover)="getTotalServices('MZ');" (click)="fetchServicesOfStates('MZ');" />
+
+                                <div class="hover_mz">
+                                    <div class="statename">
+                                        <h2>Mizoram</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/mizoram.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="SK" class="SK" alt="SK" title="Sikkim" onclick="writeText('SK')"
+                                    coords="232,117,237,119,228,124,232,127,238,126" href="#"
+                                    (mouseover)="getTotalServices('SK');" (click)="fetchServicesOfStates('SK');" />
+
+                                <div class="hover_sk">
+                                    <div class="statename">
+                                        <h2>Sikkim</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+
+                                            <img src="assets/img/states_map/Sikkim.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="TR" class="TR" alt="TR" title="Tripura" onclick="writeText('TR')"
+                                    coords="271,169,268,176,263,171" href="#" (mouseover)="getTotalServices('TR');"
+                                    (click)="fetchServicesOfStates('TR');" />
+
+                                <div class="hover_tr">
+                                    <div class="statename">
+                                        <h2>Tripura</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Tripura.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="DL" class="DL" alt="DL" title="Delhi" onclick="writeText('DL')"
+                                    coords="107,108,111,115,105,113" href="#" (mouseover)="getTotalServices('DL');"
+                                    (click)="fetchServicesOfStates('DL');" />
+
+                                <div class="hover_dl">
+                                    <div class="statename">
+                                        <h2>Delhi</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Central.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="GA" class="GA" alt="GA" title="Goa" onclick="writeText('GA')"
+                                    coords="70,266,70,272,76,268" href="#" (mouseover)="getTotalServices('GA');"
+                                    (click)="fetchServicesOfStates('GA');" />
+
+                                <div class="hover_ga">
+                                    <div class="statename">
+                                        <h2>Goa</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Goa.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="PY" class="PY" alt="PY" title="Puducherry"
+                                    onclick="writeText('PY')" coords="137,303,134,307,141,307" href="#"
+                                    (mouseover)="getTotalServices('PY');" (click)="fetchServicesOfStates('PY');" />
+
+                                <div class="hover_py">
+                                    <div class="statename">
+                                        <h2>Puducherry</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/puducherry.png" alt="Puducherry" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <area shape="poly" id="CH" class="CH" alt="CH" title="Chandigarh"
+                                    onclick="writeText('CH')" coords="96,80,94,86,99,88,104,83" href="#"
+                                    (mouseover)="getTotalServices('CH');" (click)="fetchServicesOfStates('CH');" />
+
+                                <div class="hover_ch">
+                                    <div class="statename">
+                                        <h2>Chandigarh</h2>
+                                    </div>
+                                    <div class="state_icon">
+                                        <div class="border_left_right"></div>
+                                        <div class="top_60">
+                                            <div class="service_list">
+                                                Number of Services<br />
+                                                {{noOfServices}}
+                                            </div>
+                                            <img src="assets/img/states_map/Chandigarh.png" alt="Chandigarh" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </map>
+                        </div>
+                    </div>
+
+                    <!--right side scope-->
+                    <div class="col-6 right-side-scope">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="login-heading-scope row">
+                                        <div class="heading">
+                                            <h1>
+                                                {{'ChooseavailServices' | translate}}
+                                            </h1>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="row">
+                                                <div class="icon-set-with-login">
+                                                    <div class="hover-home-icon">
+                                                        <img src="assets/img/homepage-images/regn.png" width="27%"
+                                                        height="auto" />
+                                                        <div>{{'VhlRegnNo' | translate}}</div>
+                                                    </div>
+                                                    <div class="hover-home-icon">
+                                                        <img src="assets/img/homepage-images/authority.png" width="30%"
+                                                        height="auto" />
+                                                        <div>{{'Registering' | translate}} {{'Authority' | translate}}.</div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="row">
+                                                <div class="scanner-scope">
+                                                    <!---id/code show-->
+                                                    <div class="id-code slideitem ">
+                                                        <div id="f1_container" id="firstLogin">
+                                                            <div id="f1_card" class="shadow">
+                                                                <div class="front face">
+                                                                    <div class="loginFrm" id="loginForm"
+                                                                        style="display: inline;">
+                                                                        <form novalidate role="form" class="login">
+                                                                            <div class="login">
+                                                                                <div class="form">
+                                                                                    <div>
+                                                                                        <span
+                                                                                            class="input-group-addon"></span>
+                                                                                        <div
+                                                                                            class="ui-grid-row bottom-space">
+                                                                                            <div class="ui-grid-col-12">
+                                                                                                <mat-form-field>
+                                                                                                    <mat-label>--
+                                                                                                        {{'selectState_leftSidebar'
+                                                                                                        | translate}}
+                                                                                                        --</mat-label>
+                                                                                                    <mat-select
+                                                                                                        disableRipple
+                                                                                                        (selectionChange)="onChangeState($event)"
+                                                                                                        #selectedgroupState
+                                                                                                        formControlName="stateName">
+                                                                                                        <input
+                                                                                                            class="myInput"
+                                                                                                            matInput
+                                                                                                            type="text"
+                                                                                                            (keyup)="search($any($event.target).value)"
+                                                                                                            placeholder="search">
+                                                                                                        <mat-divider></mat-divider>
+                                                                                                        <mat-option
+                                                                                                            *ngFor="let state of stateListFilter"
+                                                                                                            [value]="state.state_code">{{state.descr}}
+                                                                                                        </mat-option>
+                                                                                                    </mat-select>
+                                                                                                    <mat-error>
+                                                                                                        {{'chooeStateName'
+                                                                                                        |
+                                                                                                        translate}}</mat-error>
+                                                                                                </mat-form-field>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="ui-grid-row bottom-space">
+                                                                                            <div class="ui-grid-col-12">
+                                                                                                <mat-form-field>
+                                                                                                    <mat-label>--
+                                                                                                        {{'selectRTO_leftSidebar'
+                                                                                                        | translate}}
+                                                                                                        --</mat-label>
+                                                                                                    <mat-select
+                                                                                                        disableRipple
+                                                                                                        [(value)]="selectedRTO"
+                                                                                                        #selectedgroupRTO
+                                                                                                        formControlName="RTOName">
+                                                                                                        <input
+                                                                                                            class="myInput"
+                                                                                                            matInput
+                                                                                                            type="text"
+                                                                                                            (keyup)="searchOffice($any($event.target).value)"
+                                                                                                            placeholder="search">
+                                                                                                        <mat-divider></mat-divider>
+                                                                                                        <mat-option
+                                                                                                            *ngFor="let office of officeListFilter"
+                                                                                                            [value]="office.off_cd">
+                                                                                                            {{office.off_name
+                                                                                                            |
+                                                                                                            lowercase}}</mat-option>
+                                                                                                    </mat-select>
+                                                                                                    <mat-error>{{resourceObj?.chooeRTOName}}</mat-error>
+                                                                                                </mat-form-field>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <mat-checkbox
+                                                                                            class="privacy-font">
+                                                                                            <mat-label
+                                                                                                class="mat-subtitle-2">
+                                                                                                {{'IAccept' |translate}}
+                                                                                                <a class="red"
+                                                                                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportPrivacyPolicyv4_12.12.2022.pdf">Privacy
+                                                                                                    Policy</a> and <a
+                                                                                                    class="red"
+                                                                                                    href="https://vahan.parivahan.gov.in/vahanservice/vahan/javax.faces.resource/images/latest_pdf/DrafteTransportTermsofServicev4_12.12.2022.pdf">Terms
+                                                                                                    of Service</a>
+                                                                                                {{'forProcessing' |
+                                                                                                translate}} </mat-label>
+
+                                                                                        </mat-checkbox>
+                                                                                        <!-- </fieldset> -->
+                                                                                    </div>
+
+                                                                                </div>
+
+
+                                                                                <div
+                                                                                    class="submit-btn-scope text-center">
+                                                                                    <!-- <button >Login</button> -->
+                                                                                    <button class="btn login-button btn-primary">
+                                                                                        {{'Proceed_leftSidebar' | translate}} </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--right side scope-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,128 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="windowTitle">  
+        VAHAN GREEN SEWA
+    </ui:define> 
+    <nav class="navbar navbar-expand-lg navigation-background-header topline">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+
+                <h:link outcome="/user/usermanagement/adminhome.xhtml" >
+                    <p:graphicImage library="images" name="cng-green.png" alt="Homologation" style="width: auto; height: 50px;"/>
+                </h:link>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <h:link value="" class="nav-link" outcome="/user/usermanagement/adminhome.xhtml"><span class="glyphicon glyphicon-home"></span> Home</h:link>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  title="User Management"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fa fa-users"></span> User Management<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  title="Create User" outcome="/user/usermanagement/createuser.xhtml">Create New User</h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  title="Edit User" outcome="/user/usermanagement/edituser.xhtml">Edit User</h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  title="Block / Unblock User" outcome="/user/usermanagement/blockunblock.xhtml">Block-Unblock User</h:link>
+                            </li>
+                            <!--                        <li>
+                                                        <h:link value="" title="Audit Report" outcome="/user/usermanagement/auditlogindetails.xhtml">Audit Report</h:link>
+                                                    </li>-->
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  title="Reset User Password" outcome="/user/usermanagement/resetpassword.xhtml">Reset Password</h:link>
+                            </li>
+                            <!--                        <li>
+                                                        <h:link value="" id="submenu21" title="Send Info To User" outcome="/user/manufacturer/sendInfoToUser.xhtml">Send Info</h:link>
+                                                    </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"  id="submenu2" label="Masters"   title="Master"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fa fa-credit-card"></span> Master <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  outcome="/user/manufacturer/makermaster.xhtml" title="Maker Master">Maker Master</h:link>
+                            </li>
+                            <li>
+                                <h:link value="" class="nav-link"  outcome="/user/retrofitment/entryretromaster.xhtml">Retrofitment Master</h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link" outcome="/user/distributor/distributorMaster.xhtml">Distributor Master</h:link>
+                            </li>
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  outcome="/user/manufacturer/kitComponentMaster.xhtml">Kit Component Master </h:link>
+
+                            </li>
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link"  outcome="/user/manufacturer/vehicleModelMaster.xhtml">Vehicle Model Master</h:link>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"  id="submenu2" label="Masters"  title="Master"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fa fa-credit-card"></span> Unlock Kit <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <h:link value="" outcome="/user/manufacturer/unlockkit.xhtml">Unlock Kit</h:link>
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fa fa-user"></span> Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <h:link value="" class="nav-link" id="submenu3" outcome="/user/usermanagement/changepasswordByadmin.xhtml" title="Change Password">Change Password</h:link>
+                            </li>
+                            <li>
+                                <h:link value="" class="nav-link" outcome="/user/usermanagement/editEmailAndMobile.xhtml" title="Reset EmailID and Mobile">Reset Email ID and Mobile</h:link>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <h:link>
+                            <h:inputHidden id="preExeheader" value="#{UserMsg.preExe}"/>
+                            <h:inputHidden id="tf_CheckValueheader"  binding="#{UserMsg.methodExeCheckVal}" value="#{UserMsg.tf_CheckValue}"/>                   
+                            <h:outputText  id="usernameid" value="#{UserMsg.userName}"/>
+                        </h:link>
+                    </li>
+                    <li>
+                        <p:commandButton  id="dashboardlink"  value="Dashboard" action="#{UserMsg.gotoDashboard}"  rendered="#{sessionScope['userInfo'].userType eq null}"   
+                                          immediate="true" styleClass="glyphicon glyphicon-dashboard" />
+                    </li>
+                    <li>
+                        <p:commandButton  id="loginlink"  value="Login" action="#{UserMsg.gotoLogin}"  rendered="#{sessionScope['userInfo'].userType eq null}"   
+                                          immediate="true" styleClass="glyphicon glyphicon-log-in" />
+                    </li>
+                    <li> 
+                        <p:commandLink id="logout"  value="Logout" action="#{UserMsg.gotoLogout}"  rendered="#{sessionScope['userInfo'].userType != null}" ajax="true" 
+                                       immediate="true" styleClass="glyphicon glyphicon-log-out" >
+                            <p:confirm header="Confirmation" message="Do You Want to Log Out ?" icon="ui-icon-alert" />
+                        </p:commandLink>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
+                        <p:commandButton style="display: none;" />
+                    </li>
+                </ul>
+            </div>
+    </nav>
+</div>

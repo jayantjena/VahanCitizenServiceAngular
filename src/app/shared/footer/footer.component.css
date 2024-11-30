@@ -1,0 +1,11 @@
+.footer-section {
+    height: auto;
+    background-color: #373737;
+    color: #e8e8e8;
+    font-size: 90%;;
+    width: 100%;
+    position: fixed;
+    vertical-align: middle;
+    padding: 5px;
+    bottom: 0px;
+}

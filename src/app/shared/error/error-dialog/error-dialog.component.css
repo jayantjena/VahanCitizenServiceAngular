@@ -1,0 +1,15 @@
+.error-message {
+    background: #eee;
+    padding: 1rem;
+    font-family: monospace;
+    word-break: break-all;
+  }
+  mat-dialog-container
+  {
+    padding: 0px !important;
+     
+  }
+  .modal-dialog
+  {
+    margin: 0px !important;
+  }

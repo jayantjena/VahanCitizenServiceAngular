@@ -1,0 +1,188 @@
+<div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="background: #e6d6c5;box-shadow: 1px 0px 15px #000;border-radius: 4px;">
+            <div class="wrapper">
+                <div class="rec-prism">
+                    <div class="content">
+                        <div class="center-position">
+                            <h5>{{'Registration' | translate}}</h5>
+                        </div>
+                        <form class="form" [formGroup]="regnForm" novalidate (ngSubmit)="submitRegn(regnForm)"
+                            autocomplete="off">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="fullname" mdbInput class="form-control"
+                                        placeholder="{{'FullName' | translate}}" formControlName="fullname"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['fullname'].errors }">
+                                    <div *ngIf="submitted && rgfrm['fullname'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['fullname'].errors?.['required']">{{'FNamerequired' | translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="email" placeholder="{{'Email' | translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="email_id"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['email_id'].errors }">
+                                    <div *ngIf="submitted && rgfrm['email_id'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['email_id'].errors?.['required']">{{'Emailreq' | translate}}</div>
+                                        <div *ngIf="rgfrm['email_id'].errors?.['pattern']">{{'Emailmustvalid' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="password" placeholder="{{'Password' | translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="user_password"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['user_password'].errors }" />
+                                    <div *ngIf="submitted && rgfrm['user_password'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['user_password'].errors?.['required']">{{'Passwordisrequired' | translate}}</div>
+                                        <div *ngIf="rgfrm['user_password'].errors?.['invalidPassword']">*({{'Passwordmustcontain1Numeric1Uppercase1Lowercase1SpecialCharcter' | translate}})</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="Password" placeholder="{{'CnfirmPassword' | translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="confirmPassword"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['confirmPassword'].errors }" />
+                                    <div *ngIf="submitted && rgfrm['confirmPassword'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['confirmPassword'].errors?.['required']">{{'ConfirmPasswordisrequired' | translate}}</div>
+                                        <div *ngIf="rgfrm['confirmPassword'].errors?.['passwordMismatch']">{{'ConfirmPasswordmustbesameaspassword' | translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="{{'MobileNo' | translate}}" #mobile_no
+                                        (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" mdbInput
+                                        class="form-control top-space-5" formControlName="mobile_no"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['mobile_no'].errors }"
+                                        minlength="10" maxlength="10" />
+                                    <div *ngIf="submitted && rgfrm['mobile_no'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['mobile_no'].errors?.['required']">{{'MNoReq' | translate}}</div>
+                                        <div *ngIf="rgfrm['mobile_no'].errors?.['minlength']">{{'MNomust10' | translate}}</div>
+                                       </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="{{'LandlineNo'| translate}}"
+                                        (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" mdbInput
+                                        class="form-control top-space-5" formControlName="landline_no"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['landline_no'].errors }"
+                                        minlength="11" maxlength="11" />
+                                    <div *ngIf="submitted && rgfrm['landline_no'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['landline_no'].errors?.['required']">{{'Landlinereq'| translate}}
+                                        </div>
+                                        <div *ngIf="rgfrm['landline_no'].errors?.['minlength']">{{'Landline10digit'| translate}}
+                                        </div>
+                                         
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="add1" mdbInput class="form-control top-space-5"
+                                        placeholder="{{'HouseNoStreetNo'| translate}}" formControlName="add1"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['add1'].errors }">
+                                    <div *ngIf="submitted && rgfrm['add1'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['add1'].errors?.['required']">{{'Houserequired'| translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="add2" placeholder="{{'Village/Town/City'| translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="add2"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['add2'].errors }">
+                                    <div *ngIf="submitted && rgfrm['add2'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['add2'].errors?.['required']">{{'Village/Town/Cityrequired'| translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="lps" placeholder="{{'Landmark/PoliceStation'| translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="city"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['city'].errors }">
+                                    <div *ngIf="submitted && rgfrm['city'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['city'].errors?.['required']">{{'Landmark/Policerequired'| translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="form-control top-space-5" name="state_cd"
+                                        formControlName="state_cd"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['state_cd'].errors }">
+                                        <option value="">{{'selectState_leftSidebar' | translate }}</option>
+                                        <option *ngFor="let state of stateListFilter" [value]="state.state_code">
+                                            {{state.descr}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && rgfrm['state_cd'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['state_cd'].errors?.['required']">{{'chooeStateName'| translate}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="{{'PinCode'| translate}}" mdbInput
+                                        class="form-control top-space-5" formControlName="pincode"
+                                        (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);"
+                                        [ngClass]="{ 'is-invalid': submitted && rgfrm['pincode'].errors }"
+                                        maxlength="6" minlength="6">
+                                    <div *ngIf="submitted && rgfrm['pincode'].errors" class="invalid-feedback">
+                                        <div *ngIf="rgfrm['pincode'].errors?.['required']">{{'Pinrequired'| translate}}</div>
+                                        <div *ngIf="rgfrm['pincode'].errors?.['minlength']">{{'Pin6digits'| translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <button class="btn btn-primary" type="submit" *ngIf="!generateOTPforRegn"
+                                        (click)="generateOTPforRegistration(regnForm)">{{'GenerateOTP'| translate}}</button>
+                                    <button type="submit"  class="btn btn-primary" *ngIf="generateOTPforRegn"
+                                        (click)="generateOTPforRegistration(regnForm)">{{'Re-GenerateOTP(LastChance)'| translate}}</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" *ngIf="generateOTPforRegn" placeholder="{{'OTP'| translate}}"
+                                        autocomplete="otp" mdbInput class="form-control top-space-5"
+                                        formControlName="otp">
+                                </div>
+
+                            </div>
+                            <div class="row" *ngIf="generateOTPforRegn">
+                                <div class="col-md-12 center-position">
+                                    <button  class="btn btn-primary" type="submit">{{'Save'| translate}}</button>
+                                    <button    class="btn btn-info" type="button"
+                                        (click)="reset()">Reset</button>
+                                    <button   class="btn btn-danger" type="button"
+                                        (click)="redirectHome();">{{'Home'| translate}}</button>
+                                </div>
+                            </div>
+                            <a (click)="signInPage()" style="color: rgb(57, 147, 250);text-shadow: 0 0 black;cursor: pointer;">{{'AlreadyuserSignin' | translate}} </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br> 
+        </div>
+    </div>
+    
+</div>
+<ng-template #regnOtpDialog>
+    <div class="align-padding-left-right center-position"
+        style="text-align: center !important; padding: 25px;">
+        <mat-dialog-content>
+            <h6><i class="fa fa-cog fa-spin fa-3x fa-fw otp-spin-icon"></i> Your OTP has
+                been generate below </h6>
+            <div class="otp-font-color">{{gen_OTP}}</div>
+            <div class="row top-space">
+                <div class="col-md-12 center-position">
+                    <button mat-button matDialogClose class="btn-primary"> OK
+                    </button>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </div>
+</ng-template>

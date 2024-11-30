@@ -1,0 +1,251 @@
+<!-- <app-services-menu></app-services-menu> -->
+<!-- <router-outlet></router-outlet> -->
+<!-- <div class="headerDuplicate margin2030 top-space"> -->
+<div class="container" style="width: 65%;">
+    <div class="box box4 shadow4">
+        <div class="dash-border align-padding-left-right">
+            <div class="row">
+                <div class="col-md-12 center-position">
+                    <h5 class="bottom-arrow">
+                        <div class="entry-header-color">{{entrypageheader}}</div>
+                    </h5>
+                </div>
+            </div>
+            <form class="form" (ngSubmit)="validRegnChasi.form.valid && validateRegnChasi(regn_no,chsNo)" 
+                autocomplete="off" #validRegnChasi="ngForm" novalidate *ngIf="hideRegnChasiPanel">
+                <div class="row top-space">
+                    <div class="col-md-5">
+                        <label class="field-label field-label-mandate inline-section">
+                            <!-- <app-message message="VhlRegnNo"></app-message>. -->
+                            {{'VhlRegnNo' | translate}}
+                        </label>
+                        <!-- <span class="vertical-top"><img src="assets/img/common/infoIcon.png" alt="information icon"  class="inline-section"></span> -->
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="regn_no"
+                            #regnNumber="ngModel" name="regnNumber" (keypress)="spaceNotAllowed($event);"
+                            [ngClass]="{ 'is-invalid': validRegnChasi.submitted && regnNumber.invalid }" required
+                            minlength="6" maxlength="10">
+                        <!-- <span class="vertical-top"><img src="assets/img/common/infoIcon.png" alt="information icon"
+                                class="inline-section"></span> -->
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && regnNumber.invalid">
+                            <p *ngIf="regnNumber.errors['required']"> {{'RegnNoreqr' | translate}}</p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && regnNumber.invalid">
+                            <p *ngIf="regnNumber.errors['minlength']">{{'RegnNomin6digits'| translate}}</p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && regnNumber.invalid">
+                            <p *ngIf="regnNumber.errors['maxlength']">{{'RegnNoshould0digits'| translate}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row top-space" *ngIf="chasis_no">
+                    <div class="col-md-5">
+                        <!-- <app-message message="VhlChasiNo"></app-message> -->
+                        <label class="field-label field-label-mandate inline-section"> {{'VhlChasiNo' |
+                            translate}}</label>
+
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" mdbInput class="form-control upper-case" name="chasisNo" #chasisNo="ngModel"
+                            [(ngModel)]="chsNo" 
+                            [ngClass]="{'is-invalid':validRegnChasi.submitted && chasisNo.invalid}" required
+                            minlength="5" maxlength="5">
+                        <!-- <span class="vertical-top"><img src="assets/img/common/infoIcon.png"
+                                [matTooltip]="tooltip_for_chasi_no" matTooltipClass="example-tooltip-red"
+                                matTooltipPosition="above" alt="information icon" class="inline-section"></span> -->
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && chasisNo.invalid">
+                            <p *ngIf="chasisNo.errors['required']">{{'chassisNorequired' | translate}}</p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && chasisNo.invalid">
+                            <p *ngIf="chasisNo.errors['minlength']">{{'tooltip_for_chasi_no' | translate}} </p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="validRegnChasi.submitted && chasisNo.invalid">
+                            <p *ngIf="chasisNo.errors['maxlength']">{{'tooltip_for_chasi_no' | translate}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 center-position">
+                        <button class="btn btn-primary" type="submit"> {{'VerifyDtls' | translate}} </button>
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="row top-space bottom-space" *ngIf="mobileAadhaarPanel">
+                <div class="col-md-12 center-position">
+                    <mat-radio-group aria-label="Select an application" name="moblemailauthentication"
+                        [(ngModel)]="authPanelforMobEmail">
+                        <mat-radio-button value="mobNoWise">Mobile Number Authentication</mat-radio-button>
+                        <mat-radio-button value="emailIdWise">Aadhaar Authentication </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div> -->
+            <!-- *ngIf="mobileAadhaarPanel" -->
+            <!-- <div class="row">
+                <div class="col-md-12 center-position">
+                    <img src="assets/img/login_icon/authentication.gif" width="100" height="100" alt="authentication">
+                </div>
+            </div> -->
+            <!-- *ngIf="mobileAadhaarPanel" -->
+        <div *ngIf="mobileAadhaarPanel">
+            <div class="ui-grid-row bottom-space">
+                <div class="ui-grid-col-12 font-bold center-position"
+                    style="font-size: large; font-family: revert; letter-spacing: 1px;">
+                    <span class="personal_highlight">{{'AUTHENTICATE' | translate}} </span> {{'YOURSELF' | translate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 left-space">
+                    <!-- *ngIf="mobileAadhaarPanel" -->
+                    <div class="row top-space bottom-space">
+                        <div class="col-md-2 resp-blank-height"></div>
+                        <div class="col-md-4">
+                            <a class="hover-mob-aadhar" (click)="getMobileAuthentication()">
+                                <!-- <span class="mobileTxt">{{'USINGMOBILEOTP' | translate}}</span>
+                                <span class="mobileImg">
+                                    <img src="assets/img/login_icon/arrow.png" alt="authentication">
+                                </span> -->
+                                <div>
+                                    <img src="./assets/images/mobile-OTP.png" alt="mobile authentication">
+                                </div>
+                                <span class="mobileTxt">{{'USINGMOBILEOTP' | translate}}</span>
+                                <span class="mobileImg">
+                                    <img src="assets/img/login_icon/arrow.png" alt="authentication">
+                                </span>
+                            </a>
+                        </div>
+                        <!-- <div class="col-md-1 resp-blank-height"></div> -->
+                        <div class="col-md-4">
+                            <a class="hover-mob-aadhar" (click)="getAadhaarAuthentication()">
+                                <!-- <span class="aadhaarTxt">{{'USINGAADHAAR' | translate}}</span>
+                                <span class="aadhaarImg">
+                                    <img src="assets/img/login_icon/arrow.png" alt="authentication">
+                                </span> -->
+                                <div>
+                                    <img src="./assets/images/mobile-with-aadhaar.png" alt="aadhaar authentication">
+                                </div>
+                                <span class="aadhaarTxt">{{'USINGAADHAAR' | translate}}</span>
+                                <span class="aadhaarImg">
+                                    <img src="assets/img/login_icon/arrow.png" alt="authentication">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 left-space text-danger">
+                    <ol class="font-bold">
+                        <li>If you do Aadhar Authentication with Aadhar number of a person other registered owner then
+                            your application will be rejected and fee shall not be refundable.
+                        </li>
+                        <li>
+                            If ypu submit application with mobile OTP then you have take appointment (If applicable )
+                            and visit RTO with all valid documents
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+            <!-- *ngIf="mobNoWise" -->
+            <div class="top-space">
+                <form #validMobile="ngForm" (ngSubmit)="validMobile.form.valid && generateOTPforMobile(mobile_No)" novalidate  autocomplete="off">
+                    <div class="row" *ngIf="mobNoWise">
+                        <!-- *ngIf="mobNoWise" -->
+                        <div class="col-md-5">
+                            <label for="" class="field-label field-label-mandate"> RMN(Registered mobile number) of
+                                vehicle
+                                owner /
+                                Entered Mobile number of vehicle owner</label>
+                        </div>
+                        <div class="col-md-5">
+                            <!-- [readonly]="disableMobileNo" -->
+                            <input type="text" name="mobileNo" #mobileNo="ngModel"
+                                [(ngModel)]="mobile_No" mdbInput class="form-control" placeholder="Enter Mobile No."
+                                (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [disabled]="reGenerateOTPBtn"
+                                [ngClass]="{ 'is-invalid': validMobile.submitted && mobileNo.invalid }" required
+                                pattern="^((\\+91-?)|0)?[0-9]{10}$" minlength="10" maxlength="10">
+                            <div class="invalid-feedback" *ngIf="validMobile.submitted && mobileNo.invalid">
+                                <p *ngIf="mobileNo.errors['required']">Mobile No. is required
+                                </p>
+                                <p *ngIf="mobileNo.errors['pattern']">Mobile No. should be 10 digits</p>
+                            </div>
+                            <!-- (click)="validMobile.form.valid && generateOTPforMobile(mobile_No)" -->
+                            <button type="submit" class="btn btn-primary"
+                                *ngIf="!generateOTP">Generate
+                                OTP</button>
+                                <!-- (click)="generateOTPforMobile(mobile_No)" -->
+                            <button type="submit" class="btn btn-primary"
+                                 *ngIf="generateOTP">Re-Generate
+                                OTP(Last Chance)</button>
+                        </div>
+                    </div>
+                    <!-- <div class="row" *ngIf="mobNoWise">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-5">
+                            <button type="submit" class="btn btn-primary"
+                                (click)="validMobile.form.valid && generateOTPforMobile(mobile_No)"
+                                *ngIf="!generateOTP">Generate
+                                OTP</button>
+                            <button type="submit" class="btn btn-primary"
+                                (click)="generateOTPforMobile(mobile_No)" *ngIf="generateOTP">Re-Generate
+                                OTP(Last Chance)</button>
+                        </div>
+                    </div> -->
+                </form>
+                    <!-- *ngIf="reGenerateOTPBtn" -->
+                    <div *ngIf="reGenerateOTPBtn">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label class="field-label field-label-mandate"> Enter OTP
+                                </label>
+                            </div>
+                            <div class="col-md-5">
+                                <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+                                <!-- <input type="text" name="genOTP" #genOTP="ngModel" [(ngModel)]="gen_OTP" mdbInput class="form-control" 
+                                placeholder="Generate OTP" (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [ngClass]="{ 'is-invalid': validMobile.submitted && genOTP.invalid }"
+                                    required maxlength="4" minlength="4">
+                                <div>Reference Id is {{refID}}</div> -->
+                                <!-- <div class="invalid-feedback" *ngIf="validMobile.submitted && genOTP.invalid">
+                                   <p *ngIf="genOTP.errors['required']">OTP is required </p>
+                                </div>
+                                <div class="invalid-feedback" *ngIf="validMobile.submitted && genOTP['maxlength']">
+                                    <p *ngIf="genOTP.errors['required']">OTP should be 4 digits </p>
+                                </div>
+                                <div class="invalid-feedback" *ngIf="validMobile.submitted && genOTP['minlength']">
+                                    <p *ngIf="genOTP.errors['required']">OTP should be 4 digits </p>
+                                </div> -->
+                                <button class="btn btn-primary" type="submit" (click)="showAllServices()">{{'Submit' |
+                                    translate}}</button>
+                                <button class="btn btn-info" type="reset" (click)="reset()">{{'Reset' | translate}}</button>
+                            </div>
+                        </div>
+                        <!-- <div class="center-position"> -->
+                            <!-- <button class="btn btn-primary" type="submit" (click)="showAllServices(mobile_No,gen_OTP)">{{'Submit' | translate}}</button> -->
+                            <!-- <button class="btn btn-primary" type="submit" (click)="showAllServices()">{{'Submit' |
+                                translate}}</button>
+                            <button class="btn btn-info" type="reset" (click)="reset()">{{'Reset' | translate}}</button> -->
+                        <!-- </div> -->
+                    </div>
+               
+                <ng-template #otpDialog>
+                    <div class="align-padding-left-right center-position"
+                        style="text-align: center !important; padding: 25px;">
+                        <mat-dialog-content>
+                            <h6><i class="fa fa-cog fa-spin fa-3x fa-fw otp-spin-icon"></i> Your OTP has been generate
+                                below </h6>
+                            <div class="otp-font-color">{{mobileListData.otp}}</div>
+                            <div class="row top-space">
+                                <div class="col-md-12 center-position">
+                                    <button mat-button matDialogClose class="btn-primary"> OK
+                                    </button>
+                                </div>
+                            </div>
+                        </mat-dialog-content>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

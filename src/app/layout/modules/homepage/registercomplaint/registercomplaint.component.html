@@ -1,0 +1,170 @@
+<div class="row">
+    <app-menu></app-menu>
+</div>
+
+<div class="headerDuplicate margin2030">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>{{'Complaintform'|translate}}</h2>
+        </div>
+    </div>
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <form class="form" [formGroup]="complaintForm" (ngSubmit)="submitComplaint(complaintForm.value)" novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                    <label>{{'StateName'|translate}}:</label>
+                    <select class="form-select top-space-5" formControlName="state_cd"
+                        [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['state_cd'].errors }"
+                        (change)="onChangeState($any($event.target).value);onChangeService($any($event.target).value)">
+                        <option value="">{{'selectState_leftSidebar'|translate}}</option>
+                        <option *ngFor="let state of stateListFilter" [value]="state.state_code">{{state.descr}}
+                        </option>
+                    </select>
+                    <div *ngIf="submitted && rgnCmplFrm['state_cd'].errors" class="invalid-feedback">
+                        <div *ngIf="rgnCmplFrm['state_cd'].errors?.['required']">{{'StateNamereq'|translate}}</div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'OfficeName'|translate}}:</label>
+                        <select class="form-select top-space-5" formControlName="off_cd"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['off_cd'].errors }">
+                            <option value="">{{'SelectOff'|translate}}</option>
+                            <option selected *ngFor="let office of officeListFilter" [value]="office.off_cd">
+                                {{office.off_name}}</option>
+                        </select>
+                        <div *ngIf="submitted && rgnCmplFrm['off_cd'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['off_cd'].errors?.['required']">{{'OfficeNamereq'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'ServiceType'|translate}}:</label>
+                        <select class="form-select top-space-5" formControlName="pur_cd"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['pur_cd'].errors }">
+                            <option value="">{{'SelectService'|translate}}</option>
+                            <option *ngFor="let service of serviceList" [value]="service.pur_cd">
+                                {{service.descr}}
+                            </option>
+                        </select>
+                        <div *ngIf="submitted && rgnCmplFrm['pur_cd'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['pur_cd'].errors?.['required']">{{'ServiceNamereq'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'RegnNo'|translate}}.:</label>
+                        <input type="text" mdbInput class="form-control upper-case" placeholder="Enter Registration No."
+                            formControlName="regn_no" minlength="10" maxlength="10"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['regn_no'].errors }">
+                        <div *ngIf="submitted && rgnCmplFrm['regn_no'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['regn_no'].errors?.['required']">{{'ReceiptNorequired'|translate}}</div>
+                            <div *ngIf="rgnCmplFrm['regn_no'].errors?.['minlength']">{{'RegnNoshould0digits'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'VhlChasiNo'|translate}}:</label>
+                        <input type="text" mdbInput class="form-control" placeholder="Enter Chassis No."
+                            formControlName="chasi_no" minlength="5" maxlength="5"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['chasi_no'].errors }">
+                        <div *ngIf="submitted && rgnCmplFrm['chasi_no'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['chasi_no'].errors?.['required']">{{'chassisNorequired'|translate}}</div>
+                            <div *ngIf="rgnCmplFrm['chasi_no'].errors?.['minlength']">{{'tooltip_for_chasi_no'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'ApplicationNo'|translate}}.:</label>
+                        <input type="text" mdbInput class="form-control upper-case" placeholder="Enter Application No."
+                            formControlName="appl_no"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['appl_no'].errors }">
+                        <div *ngIf="submitted && rgnCmplFrm['appl_no'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['appl_no'].errors?.['required']">{{'Applreq'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'Email'|translate}}:</label>
+                        <input type="email" placeholder="Email" mdbInput class="form-control top-space-5"
+                            formControlName="email_id"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['email_id'].errors }">
+                        <div *ngIf="submitted && rgnCmplFrm['email_id'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['email_id'].errors?.['required']">{{'Emailreq'|translate}}</div>
+                            <div *ngIf="rgnCmplFrm['email_id'].errors?.['pattern']">{{'Emailmustvalid'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'MobileNo'|translate}}:</label>
+                        <input type="text" placeholder="Mobile No"
+                            (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" mdbInput
+                            class="form-control top-space-5" formControlName="mobile_no"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['mobile_no'].errors }" minlength="10"
+                            maxlength="10" />
+                        <div *ngIf="submitted && rgnCmplFrm['mobile_no'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['mobile_no'].errors?.['required']">{{'MNoReq'|translate}}</div>
+                            <div *ngIf="rgnCmplFrm['mobile_no'].errors?.['minlength']">{{'MNomust10'|translate}}</div>
+                            <div *ngIf="rgnCmplFrm['mobile_no'].errors?.['maxlength']">{{'MNomust10'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">
+                        <label>{{'ProblemDesc'|translate}}:</label>
+                        <textarea mdbInput class="form-control" formControlName="problem_descr"
+                            [ngClass]="{ 'is-invalid': submitted && rgnCmplFrm['problem_descr'].errors }">
+                    </textarea>
+                        <div *ngIf="submitted && rgnCmplFrm['problem_descr'].errors" class="invalid-feedback">
+                            <div *ngIf="rgnCmplFrm['problem_descr'].errors?.['required']">{{'Descrreq'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                    <table style="width: 30%;">
+                        <tr>
+                            <td><input type="file" formControlName="uploadImage" (change)="onFileChanged($event)"></td>
+                            <td><input type="button" (click)="getImage()" value="Get Image"></td>
+                        </tr>
+                        <tr *ngIf=retrievedImage>
+                            <td>
+                                <img [src]="retrievedImage">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row red">
+                <div>{{message}}</div>
+                <div>{{sizeLarge}}</div>
+                <div>{{typeMissmatch}}</div>
+            </div>
+                   <!-- <div class="col-md-6">
+                        <input type="button" (click)="onUpload()" value="upload">
+                    </div> -->
+             <div class="row">
+                <div class="col-md-12"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 center-position">
+                    <button class="btn btn-primary" type="submit">{{'Save'|translate}}</button>
+                    <button class="btn btn-info" type="button" (click)="reset()">{{'Reset'|translate}}</button>
+                    <button class="btn btn-danger" type="button" (click)="redirectHome();">{{'home'|translate}} </button>
+                </div>
+            </div>
+        </form>
+    </div>

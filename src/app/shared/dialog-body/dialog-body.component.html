@@ -1,0 +1,31 @@
+
+<!-- map dialog -->
+<div style="font-size: 1.1rem;background:#9e2e2e;padding: 6px;
+    color: #fff;
+    border-bottom: 1px solid #9e2e2e;" class="font-bold"> Services running in <span style="border-radius: 20px;
+     background: #91f799;
+     padding: 0px 12px;
+     margin: 0 6px;"></span> All RTO's
+    <span style="border-radius: 20px; background: #f5bbc5;padding: 0px 12px;
+        margin: 0 6px;"></span> Few RTO's
+    <a (click)="close()" style="cursor: pointer;"><span class="left-space "><i class="fa fa-times"></i></span></a>
+</div>
+
+<div style="height: 250px;overflow-y: scroll;">
+    <div *ngFor="let list of data">
+        <div *ngIf="list.isAllOffice==='A'" style="width: 100%;margin:2px 0px;background:  #91f799 !important;font-size: 18px;
+        padding: 6px;">
+            <img src="assets/img/homepage-images/star_icon.png" width="24" alt="star icon"> <span>{{list.descr}}</span>
+        </div>
+        <div *ngIf="list.isAllOffice==='F'" style="width: 100%;margin:2px 0px; background:  #f5bbc5 !important;font-size: 18px;
+        padding: 6px;">
+            <img src="assets/img/homepage-images/star_icon.png" width="24" alt="star icon"> {{list.descr}}
+        </div>
+    </div>
+</div>
+<!-- map dialog -->
+
+<!-- user manual dialog -->
+ 
+<!-- user manual dialog -->
+ 

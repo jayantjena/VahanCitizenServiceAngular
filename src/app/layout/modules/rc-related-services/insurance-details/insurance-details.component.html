@@ -1,0 +1,52 @@
+<div class="headerInsurance top-space">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>Insurance Details</h2>
+        </div>
+    </div>
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <!-- <form novalidate autocomplete="off"> -->
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Insurance Type</label>
+                    <input class="form-control" [(ngModel)]="changeofaddressdto.ins_type" 
+                    #insType="ngModel" name="insType">
+                </div>
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Insurance Company</label>
+                    <input class="form-control" [(ngModel)]="changeofaddressdto.comp_cd" 
+                    #compCd="ngModel" name="compCd">
+                </div>
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Policy Number</label>
+                    <input class="form-control" [(ngModel)]="changeofaddressdto.policy_no" 
+                    #policNo="ngModel" name="policyNo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Insurance from (DD-MM-YYYY)</label>
+                    <input type="date" class="form-control" [(ngModel)]="changeofaddressdto.ins_from" 
+                    #ins_from="ngModel" name="ins_from">
+                </div>
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Insurance upto (DD-MM-YYYY)</label>
+                    <input type="date" class="form-control" [(ngModel)]="changeofaddressdto.ins_upto" 
+                    #ins_upto="ngModel" name="ins_upto">
+                </div>
+                <div class="col-md-4">
+                    <label class="field-label field-label-mandate">Insurance Declared Value</label>
+                    <input class="form-control" [(ngModel)]="changeofaddressdto.idv" 
+                    #idv="ngModel" name="idv">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 top-space bottom-space">
+                    <strong>Declaration:</strong> <span class="red font-bold"> Insurance details entered by me here are
+                        correct.
+                    </span>
+                </div>
+            </div>
+        <!-- </form> -->
+    </div>
+</div>

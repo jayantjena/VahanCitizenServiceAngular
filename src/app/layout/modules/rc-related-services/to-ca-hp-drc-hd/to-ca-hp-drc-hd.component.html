@@ -1,0 +1,565 @@
+<!-- <app-services-menu></app-services-menu> -->
+<!-- <router-outlet></router-outlet> -->
+<!-- <div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 fixed-regn">
+
+        <h5>{{changeofaddressdto.regn_no}}</h5>
+
+        <div>
+            <h6 style="text-transform: lowercase;">{{changeofaddressdto.regn_type_descr }}</h6>
+        </div>
+    </div>
+</div> -->
+<div class="datatable-panel-90 feesPurChkBoxes custom-checkbox">
+    <div class="row">
+        <div class="col-md-12 center-position">
+            <h5 class="bottom-arrow">
+                <div class="entry-header-color">{{applenrtyfrmheader}}</div>
+            </h5>
+        </div>
+    </div>
+    <!-- [disabled]="item.disabled" -->
+    <div class="row">
+        <div class="col-md-12 center-position">
+            <span class="example-section" *ngFor="let item of checkboxesList">
+                <mat-checkbox class="example-margin" layout="row" [checked]="item.isSelected" name={{item.name}}
+                    [(ngModel)]="item.isSelected"
+                    (change)="isChangeLimitAccessToggle(item)">{{item.label}}</mat-checkbox>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="services-right-dec"></div>
+<form novalidate autocomplete="off" #addressDetailForm="ngForm" class="datatable-panel-90 application-panel"
+    (ngSubmit)="saveasdraftchangeofaddress(addressDetailForm)">
+    <mat-vertical-stepper [linear]="false" #stepper animationDuration="2000" >
+        <mat-step id="stepper-0">
+            <form >
+                <ng-template matStepLabel>TRANSFER OF OWNERSHIP DETAILS</ng-template>
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-transfer-of-ownership-detail></app-transfer-of-ownership-detail>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-address-details></app-address-details>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- *ngIf="hyptrmdtls" -->
+        <mat-step id="stepper-1">
+            <form>
+                <ng-template matStepLabel>HYPOTHECATION TERMINATION DETAILS </ng-template>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- *ngIf="duprcdtls" -->
+        <mat-step id="stepper-2">
+            <form>
+                <ng-template matStepLabel>DUPLICATE RC DETAILS </ng-template>
+               
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- *ngIf="chngadddtls" -->
+        <mat-step id="stepper-3">
+            <form>
+                <ng-template matStepLabel>CHANGE OF ADDRESS DETAILS </ng-template>
+               
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- *ngIf="hypadddtls" -->
+        <mat-step id="stepper-4">
+            <form>
+                <ng-template matStepLabel>HYPOTHECATION ADDTION DETAILS  </ng-template>
+               
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step id="stepper-5">
+            <ng-template matStepLabel>Done</ng-template>
+            You are now done.
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+    <div class="services-left-dec"></div>
+    <!-- <div class="datatable-panel-90">
+        <mat-tab-group>
+            <mat-tab label="TRANSFER OF OWNERSHIP DETAILS">
+                <ng-template matTabContent>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <app-transfer-of-ownership-detail></app-transfer-of-ownership-detail>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <app-address-details></app-address-details>
+                        </div>
+                    </div>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="HYPOTHECATION TERMINATION DETAILS" *ngIf="hyptrmdtls"> Content 3 </mat-tab>
+            <mat-tab label="DUPLICATE RC DETAILS" *ngIf="duprcdtls"> Content 2 </mat-tab>
+            <mat-tab label="HYPOTHECATION ADDTION DETAILS" *ngIf="hypadddtls"> Content 3 </mat-tab>
+            <mat-tab label="CHANGE OF ADDRESS DETAILS" *ngIf="chngadddtls">
+                <ng-template matTabContent>
+                    <div class="headerInsurance top-space">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-12">
+                                <h2>Existing Address Details</h2>
+                            </div>
+                        </div>
+                        <div class="align-padding-left-right login-box-regn-feedback">
+                            <app-change-address></app-change-address>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="top-space">
+
+                                        <div class="row">
+                                            <div class="col-md-6 top-space bottom-space"
+                                                style="background-color: #dce7e8;border-top-left-radius: 20%;">
+                                                <br>
+                                                <fieldset title="CrntAdd">
+                                                    <legend style="font-size: large;color: rgb(219, 6, 6);">Current
+                                                        Address (in Uttar Pradesh)
+                                                    </legend>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">House No. &
+                                                                Street Name
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="c_add11"
+                                                                #c_add1="ngModel" name="c_add1"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && c_add1.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && c_add1.invalid">
+                                                                <p *ngIf="c_add1.errors['required']">House and Street
+                                                                    Name required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">
+                                                                Village/Town/City
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="c_add22"
+                                                                #c_add2="ngModel" name="c_add2"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && c_add2.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && c_add2.invalid">
+                                                                <p *ngIf="c_add2.errors['required']">Village/Town/City
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">
+                                                                Landmark/Police Station
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="c_add33"
+                                                                #c_add3="ngModel" name="c_add3"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && c_add3.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && c_add3.invalid">
+                                                                <p *ngIf="c_add3.errors['required']">Landmark/Police
+                                                                    Station required</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate"> State
+                                                            </label>
+                                                            <select class="browser-default custom-select" name="stateID"
+                                                                [(ngModel)]="c_state" #stateID="ngModel"
+                                                                (change)="getOfficeListByStateCode(stateID.value)"
+                                                                class="form-control"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && stateID.invalid }"
+                                                                required>
+                                                                <option value=""> select one option</option>
+                                                                <option *ngFor="let states of stateList"
+                                                                    [value]="states.state_code">
+                                                                    {{states.descr}}
+                                                                </option>
+                                                            </select>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && stateID.invalid">
+                                                                <p *ngIf="stateID.errors['required']">State Name
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">District
+                                                            </label>
+                                                            <select class="browser-default custom-select"
+                                                                name="districtCID" [(ngModel)]="c_district"
+                                                                #districtCID="ngModel" class="form-control"
+                                                                [ngClass]="{'is-invalid':addressDetailForm.submitted && districtCID.invalid}"
+                                                                required>
+                                                                <option value=""> select one option</option>
+                                                                <option *ngFor="let district of districtList"
+                                                                    [value]="district.off_cd">
+                                                                    {{district.off_name | lowercase}}
+                                                                </option>
+                                                            </select>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && districtCID.invalid">
+                                                                <p *ngIf="districtCID.errors['required']">District Name
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate"> PinCode:
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="c_pincode4"
+                                                                maxlength="6" minlength="6" #c_pincode="ngModel"
+                                                                name="c_pincode"
+                                                                (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && c_pincode.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && c_pincode.invalid">
+                                                                <p *ngIf="c_pincode.errors['required']">PinCode required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row top-space">
+                                                        <div class="col-md-12">
+                                                            <b> Declaration:</b> <span class="font-bold red"> Insurance
+                                                                details entered
+                                                                by me here are
+                                                                correct. </span>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+
+                                                <br>
+                                            </div>
+                                            <div class="col-md-6 top-space bottom-space"
+                                                style="background-color: #c7d8da;border-bottom-right-radius: 30%;">
+                                                <br>
+                                                <fieldset title="CrntAdd">
+                                                    <legend style="font-size: large;"><span
+                                                            style="color: rgb(219, 6, 6);"> Permanent
+                                                            Address
+                                                        </span>
+                                                        <span class="float-right">
+                                                            <mat-checkbox class="example-margin" [(ngModel)]="checked"
+                                                                value="checked" [checked]="checkSameAddCurAdd"
+                                                                (change)="sameAsCurrentAddress($event,addressDetailForm)">
+                                                                Same
+                                                                as Current Address
+                                                            </mat-checkbox>
+                                                        </span>
+                                                    </legend>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">House No. &
+                                                                Street Name
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="p_add11"
+                                                                #p_add1="ngModel" name="p_add1"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && p_add1.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && p_add1.invalid">
+                                                                <p *ngIf="p_add1.errors['required']">House & Street Name
+                                                                    required</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">
+                                                                Village/Town/City
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="p_add22"
+                                                                #p_add2="ngModel" name="p_add2"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && p_add2.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && p_add2.invalid">
+                                                                <p *ngIf="p_add2.errors['required']">Village/Town/City
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">
+                                                                Landmark/Police Station
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="p_add33"
+                                                                #p_add3="ngModel" name="p_add3"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && p_add3.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && p_add3.invalid">
+                                                                <p *ngIf="p_add3.errors['required']">Landmark/Police
+                                                                    Station required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate"> State
+                                                            </label>
+                                                            <select class="browser-default custom-select" name="stateid"
+                                                                [(ngModel)]="p_state" #stateid="ngModel"
+                                                                (change)="getOfficeListByStateCodeForPaddress(stateid.value)"
+                                                                class="form-control"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && stateid.invalid }"
+                                                                required>
+                                                                <option value=""> select one option</option>
+                                                                <option *ngFor="let states of stateList"
+                                                                    [value]="states.state_code">
+                                                                    {{states.descr}}
+                                                                </option>
+                                                            </select>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && stateid.invalid">
+                                                                <p *ngIf="stateid.errors['required']">State Name
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate">District
+                                                            </label>
+                                                            <select class="browser-default custom-select"
+                                                                name="districtPID" [(ngModel)]="p_district"
+                                                                #districtPID="ngModel" class="form-control"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && districtPID.invalid }"
+                                                                required>
+                                                                <option value=""> select one option</option>
+                                                                <option *ngFor="let district of districtList"
+                                                                    [value]="district.off_cd">
+                                                                    {{district.off_name | lowercase}}
+                                                                </option>
+                                                            </select>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && districtPID.invalid">
+                                                                <p *ngIf="districtPID.errors['required']">District Name
+                                                                    required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="field-label field-label-mandate"> PinCode:
+                                                            </label>
+                                                            <input class="form-control" [(ngModel)]="p_pincode4"
+                                                                maxlength="6" minlength="6" #p_pincode="ngModel"
+                                                                name="p_pincode"
+                                                                (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);"
+                                                                [ngClass]="{'is-invalid': addressDetailForm.submitted && p_pincode.invalid }"
+                                                                required>
+                                                            <div class="invalid-feedback"
+                                                                *ngIf="addressDetailForm.submitted && p_pincode.invalid">
+                                                                <p *ngIf="p_pincode.errors['required']">PinCode required
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="ADDITION OF HYPOTHECATION" *ngIf="addhypothecation"> Content 3 </mat-tab>
+        </mat-tab-group>
+    </div> -->
+    <div class="row datatable-panel-90" *ngIf="insuranceDTLS">
+        <div class="col-md-12">
+            <app-insurance-details></app-insurance-details>
+        </div>
+    </div>
+    <div class="row datatable-panel-90" *ngIf="feePNL">
+        <div class="col-md-12">
+            <app-fee-panel (childMethod)="checkMee($event)"></app-fee-panel>
+        </div>
+    </div>
+    <div class="row datatable-panel-90 top-space" *ngIf="feePNL">
+        <div class="col-md-6  red"> User/Service Charges: -</div>
+        <div class="col-md-6">
+            <div class="right-position green"> Total Payable Amount (In <i class="fa fa-rupee"></i>): {{test}}
+            </div>
+        </div>
+    </div>
+    <div class="row datatable-panel-90" *ngIf="feePNL">
+        <div class="col-md-12 center-position">
+            <button type="submit" mat-button class="btn-primary" *ngIf="saveASdraft_btn_enble"> Save to Draft </button>
+            <button type="button" mat-button class="btn-primary" (click)="feeCollectionDtls()"
+                *ngIf="payment_btn_enble"> Payment </button>
+            <button type="button" mat-button class="btn-primary" *ngIf="final_submit_btn_enabe"> Final Submit </button>
+            <button type="button" mat-button class="btn-primary" *ngIf="print_reciept_btn_enable"> Print Reciept
+            </button>
+            <button type="button" mat-button class="btn-primary" *ngIf="upload_document_btn_enable"> Upload Document
+            </button>
+            <!-- <button type="button" mat-button class="btn-primary" *ngIf="book_appt_btn_enabled"> Book Appointment </button> -->
+            <button type="reset" mat-button class="btn-primary"> Reset </button>
+        </div>
+    </div>
+
+    <!-- data save successfully dialog -->
+    <ng-template #saveDraftSuccessDialog>
+        <div class="align-padding-left-right" style="padding: 25px;">
+            <div class="center-position">
+                <img src="assets/img/homepage-images/success.gif" width="50" alt="success">
+            </div><br>
+            <mat-dialog-content>
+                <div class="center-position">
+                    <h5> {{saveAsDraftDataList[0]}}. </h5>
+                    <h5> <span class="red font-bold top-space">
+                            Your Application No. is {{paymentData.appl_no}}
+                        </span></h5>
+                </div>
+            </mat-dialog-content>
+
+            <mat-dialog-actions style="text-align: center;">
+                <div class="row center-position" style="margin: 0 auto;">
+                    <div class="col-md-12 center-position">
+                        <button mat-button matDialogClose class="btn-primary" (click)="succDialogClose()"> Ok </button>
+                    </div>
+                </div>
+            </mat-dialog-actions>
+        </div>
+    </ng-template>
+    <!-- data save successfully dialog -->
+
+    <!-- fee collection Details dialog -->
+    <ng-template #feeCollectionDtlsDialog>
+        <div>
+            <header>
+                Fee Collection Details
+            </header>
+            <mat-dialog-content>
+                <div class="row" style="margin: 0 auto;">
+                    <div class="col-md-12 center-position">
+                        <div class="red font-bold top-space bottom-space"> Total Payable Amount (In <i
+                                class="fa fa-rupee"></i>): {{test}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 center-position bottom-space">
+                        Kindly ensure that the information entered here is correct. once moved forward, you won't be
+                        able to correct it. In case incorrect application is submitted then only provision is there to
+                        withdraw the application and submit new application. In this case
+                        all the fee submitted for same will be forfeited.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">Change of Address Details</legend>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Registartion No.:</div>
+                                        <div class="col-md-3 font-bold red">{{paymentData.regn_no}} </div>
+                                        <div class="col-md-3 font-bold">Chasis No.:</div>
+                                        <div class="col-md-3 font-bold red">{{paymentData.chasi_no}} </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Owner Serial No.:</div>
+                                        <div class="col-md-3 font-bold red">{{paymentData.owner_sr}} </div>
+                                        <div class="col-md-3 font-bold">Owner Category:</div>
+                                        <div class="col-md-3 font-bold red">{{paymentData.ownerCatg}} </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Sale Amount:</div>
+                                        <div class="col-md-3 font-bold red">{{paymentData.sale_amt}} </div>
+                                        <div class="col-md-3 font-bold">Ownership Type:</div>
+                                        <div class="col-md-3 font-bold red"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Current Address:</div>
+                                        <div class="col-md-8 font-bold red">{{paymentData.c_add1}}
+                                            {{paymentData.c_add2}}{{paymentData.c_add3}}{{paymentData.c_district}}
+                                            {{paymentData.c_state}} {{paymentData.c_pincode}}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Permanent Address:</div>
+                                        <div class="col-md-8 font-bold red">{{paymentData.p_add1}}
+                                            {{paymentData.p_add2}}{{paymentData.p_add3}}{{paymentData.p_district}}
+                                            {{paymentData.p_state}} {{paymentData.p_pincode}} </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3 font-bold">Sale Date:</div>
+                                        <div class="col-md-3 font-bold red"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </mat-dialog-content>
+
+            <mat-dialog-actions>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-checkbox class="example-margin" (change)="readInstructionCheckBox()"
+                            [checked]="checkedFeeDetails"> I have read the instructions and checked the information
+                            carefully.
+                        </mat-checkbox>
+                    </div>
+                </div>
+                <div class="row" *ngIf="confirmBtnEnbled">
+                    <div class="col-md-12 center-position">
+                        <button mat-button class="btn-primary" (click)="confirmPaymentDialog()"> Confirm </button>
+                        <button mat-button matDialogClose class="btn-primary"> Cancel </button>
+                    </div>
+                </div>
+                <br>
+            </mat-dialog-actions>
+            <br> <br>
+        </div>
+    </ng-template>
+    <!-- fee collection Details dialog -->
+</form>

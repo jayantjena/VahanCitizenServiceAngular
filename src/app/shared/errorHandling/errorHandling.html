@@ -1,0 +1,56 @@
+<div id="ErrorPageModal" class="modal fade" role="dialog" style="z-index:99999" > 
+    <div class="modal-dialog">  
+      <!-- Modal content for Show Error Page-->
+      <div class="modal-content"  *ngIf="showErrorPage">
+        <div class="modal-header">
+          <h4 class="modal-title">{{responseType}}</h4>
+          <button  *ngIf="!response.isSessionExpired" type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+            <div class="container" id = "divErrorPage">
+                <div class="row">
+                    <div class="col-xs-12" [style.color]="responseDescriptionColor" [innerHTML]="responseDescription"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>{{responseSource}}</h3>
+                    </div>
+                </div>
+                <div *ngIf="response.isSessionExpired" class="row">
+                    <div class="col-xs-12" style="text-align: center">
+                        <a (click)="logout()" >{{txtRedirectLogin}}</a>
+                        <!-- <h3>{{responseType}}</h3> -->
+                    </div>
+                </div>	
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button *ngIf="!response.isSessionExpired" type="button" class="btn btn-default" (click) = "closeErrorPage()" data-dismiss="modal">Close</button>
+          <button *ngIf="!response.isSessionExpired" type="button" class="btn btn-success" (click) = "refresh()" data-dismiss="modal">Refresh</button>
+        </div>
+      </div>
+  
+      <!-- Modal content for Show Error Page-->
+      <!-- <div class="modal-content"  *ngIf="showSessionExpiredPage">
+            <div class="modal-header">
+              <h4 class="modal-title"></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              
+            </div>
+            <div class="modal-body">
+                <div class="container" id = "divAuthorizePage">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>Session is Expired/Not Available, You have Been Redirect To Login Page</h3>
+                            <h3>{{responseDescription}}</h3>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" (click) = "closeErrorPage()" data-dismiss="modal">Close</button>
+            </div>
+      </div> -->
+    </div>
+  </div>

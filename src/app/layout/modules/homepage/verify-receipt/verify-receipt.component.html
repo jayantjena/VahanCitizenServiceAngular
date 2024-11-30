@@ -1,0 +1,116 @@
+ 
+     <app-logo-header></app-logo-header>
+    <app-menu></app-menu>
+    <div class="headerDuplicate margin2030 top-space">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <h2>{{'vrfyrcpt' | translate}} </h2>
+            </div>
+        </div>
+        <div class="align-padding-left-right login-box-regn-feedback">
+            <form class="form" #vryrcptForm="ngForm" (ngSubmit)="vryrcptForm.form.valid" novalidate>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <div class="md-form form-group">
+                            <label for="inputApplNo" class="field-label-mandate">{{'RegnNumber' | translate}}</label>
+                             <input type="text" mdbInput class="form-control upper-case" [disabled]="disableTextBox" 
+                             [(ngModel)]="regn_no" name="regnname" (keypress)="spaceNotAllowed($event)" ngm-sniff-keyboard #regnname="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && regnname.invalid }" required>
+                            <div class="invalid-feedback" *ngIf="vryrcptForm.submitted && regnname.invalid">
+                                <div *ngIf="regnname.errors?.['required']">{{'RegnNoreqr' | translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="md-form form-group">
+                            <label for="inputApplNo" class="field-label-mandate">{{'ReceiptNo' | translate}}</label>
+                             <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="receipt_no" [disabled]="disableTextBox"  ngm-sniff-keyboard  name="rcptname" (keypress)="spaceNotAllowed($event)" #rcptname="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && rcptname.invalid }" required>
+                            <div class="invalid-feedback" *ngIf="vryrcptForm.submitted && rcptname.invalid">
+                                <div *ngIf="rcptname.errors?.['required']">{{'ReceiptNorequired' | translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="center-position">
+                    <button class="btn btn-primary" type="submit" (click)="onSubmit()">{{'Submit' | translate}}</button>
+                    <button class="btn btn-info" type="reset" (click)="vryrcptForm.reset(); reset()">{{'Reset' | translate}}</button>
+                    <button class="btn btn-danger" type="button" (click)="redirectHome()">{{'home' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="headerInsurance margin2030 top-space" *ngIf="renderRectDtls">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <h2>Verify Receipt Details</h2>
+            </div>
+        </div>
+         <div class="align-padding-left-right">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">ARTO/ARTO Code</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.off_cd" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">ARTO/RTO Name</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.off_name" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">Vehicle Class</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.descr" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">Reciept Date</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.rcpt_dt" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top-space">
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">Owner Name</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.owner_name" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">Father's Name</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.f_name" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group">
+                        <label for="inputApplNo" class="field-label-mandate">Fitness Valid Upto</label>
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="verifyDetails.fit_upto" disabled="true" name="name" #name="ngModel" [ngClass]="{ 'is-invalid': vryrcptForm.submitted && name.invalid }" required>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <table class="datatable-panel top-space" style="margin: 0 auto !important;">
+                <thead>
+                    <th>Particular</th>
+                    <th>Amount</th>
+                    <th>Penalty</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{verifyDetails.purdescr}}</td>
+                        <td>{{verifyDetails.amount}}</td>
+                        <td>{{verifyDetails.fine}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+ 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="row">
+        <app-main-menu style="min-width: 100%;"></app-main-menu>
+    </div> -->
+
+    <div class="top-header display-none">
+        <div class="top-header-left">
+            <!-- <ul>
+                <li class="vertical-base-align"><a href="https://india.gov.in/hi" target="morth"
+                        class="top-header-font-size">
+                        <app-message message="bharatsrkr"></app-message>
+                    </a></li>
+                <li class="vertical-base-align">
+                    <a href="https://india.gov.in/hi" target="morth" class="top-header-font-size">
+                        <app-message message="govtInd"></app-message>
+                    </a>
+                </li>
+            </ul> -->
+        </div>
+        <div class="top-header-right right-space">
+            <ul>
+                <!-- <li class="red font-bold vertical-base-align" style="width: 60%">
+                    <marquee behavior="scroll" direction="left" scrolldelay="10" scrollamount="3"
+                        onmouseover="this.stop();" onmouseout="this.start();" class="top-header-font-size">
+                        Please Click <img src="assets/img/homepage-images/User_Manual.png" alt="User_Manual" />
+                        <app-message message="marquee"></app-message>
+                    </marquee>
+                </li>
+                <li class="top-header-font-size">
+                    <select name="language" id="">
+                        <option value="en">English</option>
+                        <option value="hi">HIndi</option>
+                    </select>
+                </li>
+                <li>
+                    <font size="2"><a href="javascript:void(0);" onclick="changemysize(14);"
+                            class="top-header-font-size">
+                            A<sup><b>+</b></sup></a></font>
+                </li>
+                <li>
+                    <font size="2"><a href="javascript:void(0);" onclick="changemysize(12);"
+                            class="top-header-font-size">A</a>
+                    </font>
+                </li>
+                <li>
+                    <font size="2"><a href="javascript:void(0);" onclick="changemysize(10);"
+                            class="top-header-font-size">A<sup>-</sup></a></font>
+                </li>
+                <li>
+                    <a [routerLink]="['/faq']">
+                        <img src="assets/img/homepage-images/icon-faq.png" alt="icon-faq"
+                            class="top-headeer-icon-width">
+                    </a>
+                </li>
+                <li>
+                    <a (click)="openusermanualdlg()" style="cursor: pointer;">
+                        <img src="assets/img/homepage-images/User_Manual.png" alt="User_Manual"
+                            class="top-headeer-icon-width">
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <a>
+                        <img src="assets/img/homepage-images/instruction.png" alt="instruction" class="top-headeer-icon-width">
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <a>
+                        <img src="assets/img/homepage-images/contactUS.png" alt="contactUS"
+                            class="top-headeer-icon-width">
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="nav-container display-none" [ngStyle]="setNavBackground()">
+        <div class="ui-grid ui-grid-responsive">
+            <div class="row">
+                <div class="ui-grid-col-12">
+                    <div class="inline-section vertical-right-divider">
+                        <a routerLink="#">
+                            <img src="assets/img/homepage-images/VahanCitzenServicelogo.png"
+                                alt="VahanCitzenServicelogo" width="100%" height="auto" />
+                        </a>
+                    </div>
+                    <div class="inline-section" style="vertical-align: middle">
+                        <div class="slogan-name">
+                            <app-message message="sadakparivahanhindi"></app-message>
+                        </div>
+                        <div class="slogan-name">
+                            <app-message message="roadtransport"></app-message>
+                        </div>
+                    </div>
+                    <div class="right-position float-right inline-section">
+                        <img class="respswachh-bharat-logo" src="assets/img/homepage-images/digital-india-logo.png"
+                            alt="digital-india-logo" width="100%" height="auto" style="vertical-align: middle;" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10"
+            style="border: 1px solid #dcdada;border-radius: 8px;padding: 10px;background: #f9f9f9;">
+            <div class="row">
+                <div class="col-md-6 center-position">
+                    <br>
+                    <h1 style="color: #e04362;">Transaction Failed.</h1>
+                    <h1 style="color: #e04362;" *ngIf="false">Pending Transaction.</h1>
+                    <h4>Your payment Transaction is failed.  </h4>
+                    <h6>Please inititae new transaction!!!</h6>
+                     
+                    <br><br><br> 
+                    <div class="top-space">
+                        <button mat-button class="btn-primary" (click)="redirectHome()"><i class="fa fa-home"></i> Back to Home
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 right-position">
+                    <img src="assets/img/common/payment-failed.png" alt="payment-failed" width="100%" height="100%">
+                    <img src="assets/img/common/pending-transaction.png" alt="payment-failed" width="100%" height="100%" *ngIf="false">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

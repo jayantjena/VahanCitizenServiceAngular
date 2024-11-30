@@ -1,0 +1,9 @@
+.md-dialog-container {
+   
+    width: 500px;
+    height: 250px
+}
+.mat-mdc-dialog-container .mdc-dialog__surface{
+	border-top-right-radius: 50px !important;
+	border-bottom-left-radius: 50px !important;
+ }

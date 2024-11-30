@@ -1,0 +1,155 @@
+<div>
+    <!-- <form novalidate autocomplete="off" #addressDetailForm> -->
+        <div class="row">
+            <div class="col-md-12 right-position top-space">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 top-space bottom-space" style="background-color: #dce7e8;border-top-left-radius: 20%;">
+                <br>
+                <fieldset title="CrntAdd">
+                    <legend style="font-size: large;color: rgb(219, 6, 6);">Current Address (in Uttar Pradesh)</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate">House No. & Street Name
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.c_add1" #c_add1="ngModel"
+                                name="c_add1">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> Village/Town/City
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.c_add2" #c_add2="ngModel"
+                                name="c_add2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> Landmark/Police Station
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.c_add3" #c_add3="ngModel"
+                                name="c_add3">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> State
+                            </label>
+                            <select class="form-select" name="stateID" [(ngModel)]="c_state"
+                                #stateID="ngModel" (change)="getOfficeListByStateCode(stateID.value)"
+                                 required>
+                                <option value=""> select one option</option>
+                                <option *ngFor="let states of stateList" [value]="states.state_code">
+                                    {{states.descr}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate">District
+                            </label>
+                            <select class="form-select" name="districtID" [(ngModel)]="c_district"
+                                #districtID="ngModel"  required>
+                                <option value=""> select one option</option>
+                                <option *ngFor="let district of districtList" [value]="district.off_cd">
+                                    {{district.off_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> PinCode:
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.c_pincode" #c_pincode="ngModel"
+                                name="c_pincode">
+                        </div>
+                    </div>
+                    <div class="row top-space">
+                        <div class="col-md-12">
+                            <strong class="font-bold"> Declaration:</strong> <span class="error-color"> Insurance details entered by me here are
+                                correct. </span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <br>
+            </div>
+            <div class="col-md-6 top-space bottom-space"
+                style="background-color: #c7d8da;border-bottom-right-radius: 30%;">
+                <br>
+                <fieldset title="CrntAdd">
+                    <legend style="font-size: large;"><span style="color: rgb(219, 6, 6);"> Permanent Address
+                        </span>
+                        <!-- <span class="example-section float-right">
+                            <mat-checkbox class="example-margin" [checked]="allcomplete"
+                             (change)="sameAsCurrentAddress(c_add1.value)">Same as Current Address</mat-checkbox>
+                        </span> -->
+                    </legend>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate">House No. & Street Name
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.p_add1" #p_add1="ngModel"
+                                name="p_add1">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> Village/Town/City
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.p_add2" #p_add2="ngModel"
+                                name="p_add2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> Landmark/Police Station
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.p_add3" #p_add3="ngModel"
+                                name="p_add3">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> State
+                            </label>
+                            <select class="form-select" name="stateid" [(ngModel)]="p_state"
+                                #stateid="ngModel" (change)="getOfficeListByStateCode(stateid.value)"
+                                  required>
+                                <option value=""> select one option</option>
+                                <option *ngFor="let states of stateList" [value]="states.state_code">
+                                    {{states.descr}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate">District
+                            </label>
+                            <select class="form-select" name="districtid" [(ngModel)]="p_district"
+                                #districtid="ngModel"  required>
+                                <option value=""> select one option</option>
+                                <option *ngFor="let district of districtList" [value]="district.off_cd">
+                                    {{district.off_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="field-label field-label-mandate"> PinCode:
+                            </label>
+                            <input class="form-control" [(ngModel)]="changeofaddressdto.p_pincode" #p_pincode="ngModel"
+                                name="p_pincode">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 top-space bottom-space">
+                <strong class="font-bold">***Note :</strong> <span class="error-color"> Transfer of ownership (TO) is used in case
+                    of SALE, AUCTION, SUCCESSION
+                </span>
+            </div>
+        </div>
+    <!-- </form> -->
+</div>

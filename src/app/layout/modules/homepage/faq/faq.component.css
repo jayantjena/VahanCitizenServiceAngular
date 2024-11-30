@@ -1,0 +1,8 @@
+ .faq-accordian mat-expansion-panel-header
+{
+    background: linear-gradient(-3deg, #6d9252, transparent); 
+}
+.accordion-item button{
+        margin:0 !important;
+    }
+    

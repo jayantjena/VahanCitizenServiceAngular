@@ -1,0 +1,30 @@
+.left-sidebar {
+	/* border: 0.2px solid #EBEFE8; */
+	box-sizing: border-box;
+	background: #ebefe8;
+	background: -webkit-gradient(top, #EBEFE8 0%, #727371 63.15%, #444444 100%);
+	background: -webkit-linear-gradient(top, #EBEFE8 0%, #727371 63.15%, #444444 100%);
+	background: -moz-linear-gradient(top, #EBEFE8 0%, #727371 63.15%, #444444 100%);
+	background: -ms-linear-gradient(top, #EBEFE8 0%, #727371 63.15%, #444444 100%);
+	background: -o-linear-gradient(top, #EBEFE8 0%, #727371 63.15%, #444444 100%);
+	background-repeat: repeat-x;
+	bottom: 0;
+	-webkit-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	margin-left: 10px;
+	height: 100%;
+}
+.left-sidebar h3 {
+	font-family: sans-serif;
+	margin-top: 15px;
+	text-decoration: underline;
+	color: #000000;
+	margin-bottom: 15px;
+	font-size: 13px;
+}
+.about-mp {
+	font-size: 104%;
+	padding-left: 10px;
+	color: #000000;
+	line-height: 17px;
+}

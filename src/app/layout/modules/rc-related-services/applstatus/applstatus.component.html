@@ -1,0 +1,137 @@
+<!-- <app-services-menu></app-services-menu> -->
+<router-outlet></router-outlet>
+<div class="headerDuplicate margin2030 top-space">
+
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>Application Status</h2>
+        </div>
+    </div>
+
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <form class="form" #applstatusForm="ngForm" (ngSubmit)="applstatusForm.form.valid && onSubmit();" novalidate>
+
+            <div class="form-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="md-form form-group">{{errormsg}}
+                        <label for="inputApplNo" class="field-label-mandate">Application No.</label>
+                        <!-- <input mdbInput type="text" name="applNo" class="form-control" id="inputApplNo" placeholder="Enter Application No." [(ngModel)]="applNo" #applNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required> -->
+                        <input type="text" mdbInput class="form-control upper-case" [disabled]="disableTextBox" [(ngModel)]="applNo" name="name" (keypress)="spaceNotAllowed($event)" #name="ngModel" [ngClass]="{ 'is-invalid': applstatusForm.submitted && name.invalid }" required>
+                        <div class="invalid-feedback" *ngIf="applstatusForm.submitted && name.invalid">
+                            <p *ngIf="name.errors?.['required']">Application No. is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-position">
+                <button mat-button class="btn-primary" type="submit" (click)="onSubmit()">Submit</button>
+                <button mat-button class="btn-danger" type="reset" (click)="applstatusForm.reset(); reset()">Reset</button>
+                <button mat-button class="btn-success" type="button" (click)="redirectHome()">Home</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="headerInsurance margin2030 top-space" *ngIf="renderApplstatus">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>Application Status Details</h2>
+        </div>
+    </div>
+
+    <div class="align-padding-left-right table-horizontal-scroll" style="overflow-x:auto;">
+        <table class="datatable-panel top-space" style="margin: 0 auto !important;">
+            <thead>
+                <th>Sr No.</th>
+                <th>Office Name</th>
+                <th>Application No</th>
+                <th>Application Date</th>
+                <th>Transaction Purpose </th>
+                <th>Registration No.</th>
+                <th>Current Status</th>
+                <th>HSRP Status</th>
+                <th>FC Print</th>
+                <th>RC Print / SMART CARD Status</th>
+                <th>DISPATCH RC Status</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of getapplstatusList;  let SiNo=index;">
+                    <td>{{SiNo+1}} </td>
+                    <td>{{data.offName}} </td>
+                    <td>{{data.appl_no}} </td>
+                    <td>{{data.appl_dt}} </td>
+                    <td>{{data.purCdDescr}} </td>
+                    <td>{{data.regno}} </td>
+                    <td>{{data.statusDesc}} </td>
+                    <td>{{data.hsrpDone}} </td>
+                    <td>{{data.fcPrinted}} </td>
+                    <td>{{data.rcPrinted}} {{ data.smartCardDone}} </td>
+                    <td>{{data.dispatchRCDone}} </td>
+                    <td><button mat-button class="btn-primary" type="submit" (click)="getdata(data)" data-toggle="modal" data-target="#exampleModalCenter">Show Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <!-- dialog for show details -->
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="min-width: 70% !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Report By Application Number</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="datatable-panel top-space" style="margin: 0 auto !important;">
+                            <thead>
+                                <th>Application No</th>
+                                <th>Transaction Purpose </th>
+                                <th>Registration No.</th>
+                                <th>Current Status</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{getdata1.appl_no}} </td>
+                                    <td>{{getdata1.purCdDescr}} </td>
+                                    <td>{{getdata1.regno}} </td>
+                                    <td>{{getdata1.statusDesc}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+                        <table class="datatable-panel top-space" style="margin: 0 auto !important;">
+                            <thead>
+                                <th>Sr No.</th>
+                                <th>Action</th>
+                                <th>Status</th>
+                                <th>Office Remark</th>
+                                <th>Public Remark </th>
+                                <th>Process By</th>
+                                <th>Process On</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of oldData;  let SiNo=index;">
+                                    <td>{{SiNo+1}} </td>
+                                    <td>{{data.action_descr}} </td>
+                                    <td>{{data.status}} </td>
+                                    <td>{{data.office_remark}} </td>
+                                    <td>{{data.public_remark}} </td>
+                                    <td>{{data.entered_by}} </td>
+                                    <td>{{data.entered_on}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

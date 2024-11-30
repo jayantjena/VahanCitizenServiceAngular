@@ -1,0 +1,48 @@
+
+.settingBtn div {
+    line-height: 40px
+}
+
+.zoneScope.settingBtn div {
+    line-height: normal;
+    padding: 10px 15px
+}
+
+.themeColoScope {
+    margin-top: 20px;
+    padding: 15px
+}
+
+.themeColoScope div {
+    height: 52px !important;
+    line-height: 52px;
+    background: #f9f9f9
+}
+ 
+.themeColoScope .themeNav {
+    position: absolute;
+    width: 20px;
+    top: -1px;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    border: 0
+}
+
+.mb-5 {
+    margin-bottom: 5px
+}
+
+.themeColoScope .themeHeader {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    height: 20px !important;
+    margin: 0;
+    width: calc(100% - 20px);
+    border: 0
+}
+
+.themeColoScope div.themeTwo .themeNav {
+    background: #414042
+}

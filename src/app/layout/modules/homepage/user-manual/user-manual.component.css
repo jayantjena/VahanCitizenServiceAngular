@@ -1,0 +1,10 @@
+.steps-to-flow li {
+	color: #30007d;
+	font-size: 16px;
+	padding: 8px;
+	list-style-type: none;
+}
+
+.steps-to-flow li i {
+	margin-right: 1rem !important;
+}

@@ -1,0 +1,113 @@
+<!-- <app-services-menu></app-services-menu> -->
+<!-- <router-outlet></router-outlet> -->
+<div class="row top-space" *ngIf="hideAadharPanel">
+    <div class="col-md-4"></div>
+    <div class="col-md-7">
+        <div class="ui-grid-row top-space">
+            <div class="ui-grid-col-3">
+                <img src="assets/img/aadhaar_img/aadhar.png" alt="aadhar" style="cursor: pointer;box-shadow: 0px 4px 10px 0px #027279;border-radius: 10px;" class="imgAadharVirt" (click)="getAadharPanel()">
+            </div>
+            <div class="ui-grid-col-3">
+                <img src="assets/img/aadhaar_img/virtual_aadharID.png" alt="virtualAadharID" class="imgAadharVirt" style="cursor: pointer;box-shadow: 0px 4px 10px 0px #9c5700;border-radius: 10px;" (click)="getVirtualAadharPanel()">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="width: 65%;" *ngIf="showAadharPanel">
+    <div class="box box4 shadow4">
+        <div class="dash-border align-padding-left-right">
+            <div class="row">
+                <div class="col-md-12 center-position">
+                    <h5 class="bottom-arrow">
+                        <div class="entry-header-color">{{aadharNoWithVirIDAuth}}</div>
+                    </h5>
+                </div>
+            </div>
+
+            <form class="form" autocomplete="false" #aadharAuth="ngForm" novalidate (ngSubmit)="aadharAuth.form.valid && getAadhaarOTP(aadharNumber)">
+                <div class="row top-space font-bold-500">
+                    <div class="col-md-4">
+                        <label class="field-label field-label-mandate inline-section">
+                            <!-- <app-message message="VhlRegnNo"></app-message>. -->
+                            Enter Aadhar Number
+                        </label>
+                        <!-- <span class="vertical-top"><img src="assets/img/common/infoIcon.png" alt="information icon"  class="inline-section"></span> -->
+                    </div>
+                    <div class="col-md-5">
+                        <input type="password" mdbInput class="form-control upper-case" [(ngModel)]="aadhaar_no" #aadharNumber="ngModel" name="aadharNumber" (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [ngClass]="{'is-invalid': aadharAuth.submitted && aadharNumber.invalid }"
+                            required minlength="12" maxlength="12">
+                        <div class="invalid-feedback" *ngIf="aadharAuth.submitted && aadharNumber.invalid">
+                            <p *ngIf="aadharNumber.errors['required']">Aadhar No. is required</p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="aadharAuth.submitted && aadharNumber.invalid">
+                            <p *ngIf="aadharNumber.errors['minlength']">Aadhar No. should be 12 digits</p>
+                        </div>
+                        <div class="invalid-feedback" *ngIf="aadharAuth.submitted && aadharNumber.invalid">
+                            <p *ngIf="aadharNumber.errors['maxlength']">Aadhar No. should be 12 digits</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" mat-button class="btn-primary" *ngIf="getOTP_btn_enble" style="margin: 0px auto !important;">Get OTP </button>
+
+                    </div>
+                </div>
+            </form>
+            <br>
+            <mat-checkbox class="example-margin" [checked]="checkedCheckBox" (change)="checkAadhaarDclrtion($event)">I Agree with the bellow information related Aadhar Authentication.
+            </mat-checkbox>
+            <div class="top-space font-bold-500" style="color: #027483;">
+                <ol>
+                    <li>I hereby state that I have no objection in authenticating myself with Aadhaar based authentication system and consent to providing my Aadhaar number and One Time Pin (OTP) data for Aadhaar based authentication for the purposes of availing
+                        of the RC related Services.</li>
+                    <li>I understand that the OTP I provide for authentication and eKYC shall be used only for authenticating my identity through the Aadhaar Authentication system for that specific transaction and for no other purposes.</li>
+                    <li>I understand that the Transport Department shall ensure security and confidentiality of my personal identity data provided for the purpose of Aadhaar based authentication.</li>
+                </ol>
+            </div>
+            <div class="top-space red font-bold">
+                Please note that OTP for entered Aadhaar will be valid for 10 mins. Generate/Retrieve your VID by sending SMS to 1947. For more into visit uidai.gov.in.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- generate aadhaar OTP dialog start  -->
+
+<ng-template #aadhaarOTPDialog>
+    <form #OTPform="ngForm" novalidate (ngSubmit)="OTPform.form.valid && vaidateaadhar(mobileOTP)">
+
+        <header>
+            Aadhaar OTP
+        </header>
+        <div class="align-padding-left-right" style="padding: 25px;">
+            <mat-dialog-content>
+                <label class="font-bold-500">Enter Your Mobile OTP</label>
+                <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="mobile_OTP" #mobileOTP="ngModel" name="mobileOTP" (keypress)="spaceNotAllowed($event);onlyNumberAllowed($event);" [ngClass]="{'is-invalid': OTPform.submitted && mobileOTP.invalid }"
+                    required minlength="6" maxlength="6">
+                <div class="invalid-feedback" *ngIf="OTPform.submitted && mobileOTP.invalid">
+                    <p *ngIf="mobileOTP.errors['required']">OTP is required</p>
+                </div>
+                <div class="invalid-feedback" *ngIf="OTPform.submitted && mobileOTP.invalid">
+                    <p *ngIf="mobileOTP.errors['minlength']">Aadhar OTP should be 6 digits</p>
+                </div>
+                <div class="invalid-feedback" *ngIf="OTPform.submitted && mobileOTP.invalid">
+                    <p *ngIf="mobileOTP.errors['maxlength']">Aadhar OTP should be 6 digits</p>
+                </div>
+                <div class="red">
+                    Please enter OTP send on your Aadhaar registered
+                </div>
+                <div class="red"> Mobile Number.</div>
+            </mat-dialog-content>
+            <mat-dialog-actions style="text-align: center;">
+                <div class="row center-position" style="margin: 0 auto;">
+                    <div class="col-md-12 center-position">
+                        <button mat-button matDialogClose class="btn-primary" type="submit"> Resend Mobile
+                                OTP</button>
+                        <button mat-button matDialogClose class="btn-primary" type="submit"> Validate OTP</button>
+                    </div>
+                </div>
+            </mat-dialog-actions>
+        </div>
+    </form>
+</ng-template>
+<!-- generate aadhaar OTP dialog end  -->

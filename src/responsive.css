@@ -1,0 +1,126 @@
+@charset "ISO-8859-1";
+
+@media screen and (max-width: 500px) {
+  .slogan-name {
+    font-size: 50%;
+  }
+  .vertical-right-divider {
+    width: 90px;
+  }
+  .logo_citizen_service {
+    width: 100%;
+  }
+  .nav-container {
+    background: #137486;
+  }
+  .respswachh-bharat-logo {
+    width: 80px;
+  }
+  .respTD {
+    width: 20%;
+  }
+  .bharat_sarakar,
+  .gov_india_citizen {
+    font-size: 64%;
+  }
+  .width_20 {
+    width: 20px;
+  }
+  .dis_none {
+    display: none !important;
+  }
+}
+/* Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .slogan-name {
+    font-size: 100%;
+  }
+  .vertical-right-divider {
+    width: 150px;
+  }
+  .logo_citizen_service {
+    width: 100%;
+  }
+  .nav-container {
+    background: #137486;
+  }
+  .respswachh-bharat-logo {
+    width: 100px;
+  }
+  .respTD {
+    width: 20%;
+  }
+  .bharat_sarakar,
+  .gov_india_citizen {
+    font-size: 90%;
+  }
+  .width_20 {
+    width: 20px;
+  }
+  .dis_none {
+    display: none !important;
+  }
+}
+
+/* Portrait */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .slogan-name {
+    font-size: 100%;
+  }
+  .vertical-right-divider {
+    width: 150px;
+  }
+  .logo_citizen_service {
+    width: 100%;
+  }
+  .nav-container {
+    background: #137486;
+  }
+  .respswachh-bharat-logo {
+    width: 100px;
+  }
+  .respTD {
+    width: 20%;
+  }
+  .bharat_sarakar,
+  .gov_india_citizen {
+    font-size: 90%;
+  }
+  .width_20 {
+    width: 20px;
+  }
+  .dis_none {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .slogan-name {
+    font-size: 30px !important;
+  }
+  .vertical-right-divider {
+    width: 400px;
+  }
+  .top-headeer-icon-width {
+    width: 35px;
+  }
+  .top-header-font-size {
+    font-size: 20px;
+  }
+  .navbar .navbar-nav > a,
+  .navbar-nav .nav-link {
+    font-size: 19px !important;
+  }
+  .right-sidebar h6 {
+    font-size: 24px;
+  }
+  .map-reponsive
+  {
+      height: 500px;
+  }
+  .login-box-regn button {
+  font-size: 20px !important;
+  }
+}

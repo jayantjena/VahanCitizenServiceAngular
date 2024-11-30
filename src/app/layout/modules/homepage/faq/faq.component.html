@@ -1,0 +1,52 @@
+<!-- <div class="row">
+  <app-main-menu style="min-width: 100%;"></app-main-menu>
+</div> -->
+
+<!-- <div class="row">
+  <div class="col-md-12">
+    <mat-accordion class="faq-accordian">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header *ngFor="let faqlist of faqdetails">
+          <mat-panel-title (click)="this.getfaqcode(faqlist.service_code);">
+            {{faqlist.description}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let faqCode of faqcodelist">
+          <div class="font-bold" style="padding: 5px;color: #065596;">
+            <span class="fa fa-hand-o-right"></span> {{faqCode.quest}}
+          </div>
+          <div class="font-bold" style="padding: 5px;color: #965306;">
+            <span class="fa fa-hand-o-right"></span> {{faqCode.answer}}
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div> -->
+<app-menu></app-menu>
+<div class="accordion" id="accordionExample">
+   
+  <div class="accordion-item"  *ngFor="let faqlist of faqdetails; let i=index;">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button"  (click)="this.getfaqcode(faqlist.service_code);" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseTwo'+i" aria-expanded="false" [attr.aria-controls]="'collapseTwo'+i">
+        {{faqlist.description}}
+      </button>
+    </h2>
+    <div [attr.id]="'collapseTwo'+i" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body" *ngFor="let faqCode of faqcodelist">
+        
+        <div class="font-bold" style="padding: 5px;color: #065596;">
+          <span class="fa fa-hand-o-right"></span> Question :- {{faqCode.quest}}
+        </div>
+        <div class="font-bold" style="padding: 5px;color: #965306;">
+          <span class="fa fa-hand-o-right"></span> Answer :-  {{faqCode.answer}}
+        </div> 
+      
+      </div>
+    </div>
+  </div>
+   
+</div>
+ 
+

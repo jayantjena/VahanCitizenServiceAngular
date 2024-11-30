@@ -1,0 +1,53 @@
+<app-logo-header></app-logo-header>
+
+<div class="headerDuplicate margin2030">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>Complaint Status</h2>
+        </div>
+    </div>
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <form #complatstatusform="ngForm" (ngSubmit)="submitComplaint()" novalidate autocomplete="off">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 top-space right-position right-space">
+                    <span class="field-label-mandate top-space" style="vertical-align: -webkit-baseline-middle;">Complaint ID</span>
+                </div>
+                <div class="col-md-3">
+                    <div class="md-form form-group top-space">
+                        <input type="text" mdbInput class="form-control upper-case" [(ngModel)]="credential.complaint_id"
+                            name="comID" #comID="ngModel"
+                            [ngClass]="{ 'is-invalid': complatstatusform.submitted && comID.invalid }" required>
+                        <div class="invalid-feedback" *ngIf="complatstatusform.submitted && comID.invalid">
+                            <p *ngIf="comID.errors?.['required']">Complaint ID is required</p>
+                        </div>
+                    </div>
+                     <strong> Note:-</strong> <span class="red">Only alphabets,digits and (/) allowed</span>
+                </div>
+                <div class="col-md-5">
+                    <button mat-button class="btn-primary" type="submit">Submit</button>
+                    <button mat-button class="btn-primary" type="button" (click)="complatstatusform.reset()">Reset</button>
+                     
+                </div>
+            </div>
+
+            <ng-template #complaintStatus>
+                <div class="align-padding-left-right center-position" style="text-align: center !important; padding: 25px;">
+                   <mat-dialog-content>
+                        <h6> Complaint Id <span red style="color: red !important;" matTooltipClass="design-tooltip" matTooltip="{{complaintDto.problem_descr}}"
+                            matTooltipPosition="above">{{complaintDto.complaint_id}}</span> has been forwarded to 
+                            helpdesk team on <span red style="color: red !important;">{{complaintDto.submitted_on}}</span>.</h6>
+                            <div>Please check your mail box and if you have any query, Please contact to helpdesk team at helpdesk-vahan@gov.in</div>
+                    
+                    <div class="row top-space">
+                        <div class="col-md-12 center-position">
+                            <button mat-button matDialogClose class="btn-primary" > OK
+                            </button>
+                        </div>
+                    </div>
+                    </mat-dialog-content>
+                 </div>
+            </ng-template>
+        </form>
+    </div>
+</div>

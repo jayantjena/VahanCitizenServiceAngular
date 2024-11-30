@@ -1,0 +1,28 @@
+table,
+.tableData {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    empty-cells: show;
+    border: none;
+    border-top: 1px solid #e9e9ea;
+    border-left: 1px solid #e9e9ea;
+}
+.dark .tableData th{
+    background: #000 !important;
+}
+th,
+.tableData th {
+    background: #1498cd;
+    font-weight: 500;
+    color: #fff;
+}
+
+.screen-reader h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    margin: 0 0 16px;
+}

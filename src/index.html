@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>VcsWebUi</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Epilogue:wght@300;400;500;600;700;800;900&family=Odibee+Sans&display=swap"
+    rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link href="./assets/css/templatemo-space-dynamic.css" rel="stylesheet">
+  <!-- <link href="./assets/css/map.css" rel="stylesheet"> -->
+  <!-- <link href="./assets/css/layout.css" rel="stylesheet"> -->
+  <link href="./assets/css/animate.css" rel="stylesheet">
+  <!-- <link href="./assets/css/aos.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./assets/css/linear.css">
+  <!-- <link rel="stylesheet" href="./assets/css/animate.css">  -->
+  <!-- <link rel="stylesheet" href="./assets/css/map.css">   -->
+
+  <!-- Scripts -->
+  <!-- <script type="text/javascript" src="assets/assets/assets/js/owl-carousel.js"></script> -->
+  <!-- <script  type="text/javascript" src="./assets/js/jquery.js"></script> -->
+  <!-- <script  type="text/javascript" src="./assets/js/bootstrap.min.js"></script> -->
+  <!-- <script  type="text/javascript" src="./assets/js/select2.min.js"></script> -->
+  <!-- <script  type="text/javascript" src="./assets/js/aos.js"></script>  -->
+  <!-- <script  type="text/javascript" src="./assets/js/script.js"></script> -->
+
+  <!-- <script  type="text/javascript" src="./assets/js/raphael.min.js"></script>
+  <script  type="text/javascript" src="./assets/js/map-settings.js"></script>
+  <script  type="text/javascript" src="./assets/js/paths.js"></script>  -->
+  <!-- <script type="text/javascript"  src="./assets/js/map.js"></script> -->
+  <!-- <script type="text/javascript" src="assets/assets/assets/js/templatemo-custom.js"></script> -->
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+  <script type="text/javascript">
+    // When + or - buttons are clicked the font size of the h1 is increased/decreased by 2
+    // The max is set to 50px for this demo, the min is set by min font in the user's style sheet
+    $(document).ready(function () {
+      $('#zoom-in').click(function () {
+        let currentSize = parseInt($('html').css('font-size'));
+        $('html').css('font-size', (currentSize + 2) + 'px');
+      });
+
+      $('#zoom-out').click(function () {
+        let currentSize = parseInt($('html').css('font-size'));
+        $('html').css('font-size', (currentSize - 2) + 'px');
+      });
+    });
+
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+     
+  </script>
+</body>
+
+</html>

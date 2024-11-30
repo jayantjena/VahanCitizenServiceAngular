@@ -1,0 +1,197 @@
+<!-- <app-services-menu></app-services-menu> -->
+<!-- <router-outlet></router-outlet> -->
+<div class="center-position">
+    <strong> </strong> <span class="red font-bold" [ngStyle]="{'color':'red','font-size.px':20}">{{'Note:'+'
+        '+msg}}</span>
+</div>
+<div class="headerDuplicate margin2030 top-space">
+
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>Check Pending Transaction</h2>
+        </div>
+    </div>
+
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <div class="row top-space bottom-space">
+            <div class="col-md-12 center-position">
+                <mat-radio-group aria-label="Select an application" name="checkpndng" (change)="onChange($event)" [(ngModel)]="myApplication">
+                    <mat-radio-button value="trangNoWise">Transaction No(Application No).</mat-radio-button>
+                    <mat-radio-button value="regnNoWise">Registration Number </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <form action="" [formGroup]="checkPndngForm">
+            <div *ngIf="myApplication == 'trangNoWise'">
+                <div class="form-row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-3">
+                        <div class="md-form form-group">
+                            <label for="inputEmail4MD" class="field-label-mandate">Transaction No(Application
+                                No).</label>
+                            <input mdbInput type="text" class="form-control" id="inputEmail4MD" placeholder="Enter Transaction No." [(ngModel)]="transaction_No" formControlName="transaction_No" oninput="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="myApplication == 'regnNoWise'">
+                <div class="form-row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <div class="md-form form-group">
+                            <label>Registration No.</label>
+                            <input mdbInput type="text" uppercase class="form-control upper-case" minlength="10" maxlength="10" placeholder="Enter Registration No." formControlName="reg_No" [(ngModel)]="reg_No" (keypress)="spaceNotAllowed($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="md-form form-group">
+                            <label>Chassis Number(Last 5 digit)</label>
+                            <input mdbInput type="text" class="form-control" minlength="5" maxlength="5" (keypress)="onlyNumeric($event)" placeholder="Enter Chassis No." formControlName="chasi_No" [(ngModel)]="chasi_No" oninput="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="center-position">
+        <button mat-button class="btn-primary" (click)="getListForChkPending();">Show Details</button>
+        <button mat-button class="btn-danger">Reset</button>
+    </div>
+</div>
+
+<div class="headerDuplicate margin2030 top-space">
+
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12">
+            <h2>All Failed Transactions Detail</h2>
+        </div>
+    </div>
+
+    <div class="align-padding-left-right login-box-regn-feedback">
+        <div class="center-position red font-bold top-space">
+            Click on Trans ID, for double verification of this transaction from bank
+        </div>
+        <table class="datatable-panel top-space" style="margin: 0 auto !important;">
+            <thead>
+                <th>Sr No.</th>
+                <th>Transaction Desc</th>
+                <th>Transaction ID</th>
+                <th>Registration No</th>
+                <th>Transaction Amt</th>
+                <th>Transaction Date</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of chkpentransList">
+                    <td>{{data.slNO}}</td>
+                    <td>{{data.transactionDesc}}</td>
+                    <td [ngStyle]="{'color':'blue','font':'bold','font-size.px':16}" (click)="getTaxBreakUp(data.purCD,data.transactionID,data.offCD,data.stateCD,data.regnNo)">
+                        {{data.transactionID}}</td>
+                    <td>{{data.regnNo}}</td>
+                    <td>{{data.transactionAMT}}</td>
+                    <td>{{data.transactionDate|date:'dd-MMM-yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="top-space">
+
+        </div>
+        <table class="datatable-panel top-space" style="margin: 0 auto !important;" *ngIf="renderFeeTable">
+            <thead>
+                <th>Fee Head</th>
+                <th>Fee Amount(In Rs)</th>
+                <th>Penalty</th>
+                <th>Total</th>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let taxbreakup of taxbreakupList">
+                    <td>{{taxbreakup.taxPurcdDesc}}</td>
+                    <td>{{taxbreakup.totalPaybaleTax}}</td>
+                    <td>{{taxbreakup.totalPaybalePenalty}}</td>
+                    <td>{{taxbreakup.finalTaxAmount}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table class="datatable-panel top-space" style="margin: 0 auto !important;" *ngIf="renderTaxTable">
+
+            <thead>
+                <tr>
+                    <th colspan='8'>Tax Header</th>
+                </tr>
+                <tr>
+                    <th>Tax From</th>
+                    <th>Tax UpTo</th>
+                    <th>Tax Amount</th>
+                    <th>Addl Tax1</th>
+                    <th>Addl Tax2</th>
+                    <th>Penalty</th>
+                    <th>Previous Adjustment</th>
+                    <th>Surcharge</th>
+                    <th>Rebate</th>
+                    <th>Interest</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let taxbreakup of taxbreakupList">
+                    <td>{{taxbreakup.finalTaxFrom}}</td>
+                    <td>{{taxbreakup.finalTaxUpto}}</td>
+                    <td>{{taxbreakup.finalTaxAmount}}</td>
+                    <td>{{taxbreakup.totalPaybaleTax1}}</td>
+                    <td>{{taxbreakup.totalPaybaleTax2}}</td>
+                    <td>{{taxbreakup.totalPaybalePenalty}}</td>
+                    <td>{{taxbreakup.previousAdjustment}}</td>
+                    <td>{{taxbreakup.totalPaybaleSurcharge}}</td>
+                    <td>{{taxbreakup.totalPaybaleRebate}}</td>
+                    <td>{{taxbreakup.totalPaybaleInterest}}</td>
+                    <td>{{taxbreakup.totalAmount}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <div class="top-space font-bold">
+            <h6>User/Service Charges:---------------------------</h6>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center-poition">
+                <button mat-button *ngIf="renderChckBtn" (click)="checkToBank(taxBreakUp)">Check To Bank</button>
+                <button mat-button class="btn-primary">Back</button>
+            </div>
+        </div>
+
+        <h5>
+            <div> Your Last Transaction has been failed.</div>
+            <div> Do you want to re-verify with Bank/Treasury ?</div>
+        </h5>
+        <div class="row">
+            <div class="col-md-12 center-poition">
+                <button type="button" mat-button class="btn-primary">Yes</button>
+                <button type="button" mat-button class="btn-danger">No</button>
+            </div>
+        </div>
+
+        <mat-dialog-content class="md-dialog-container">
+            <div>
+                <div>
+                    Confirm for bank check
+                </div>
+
+                <div>
+                    Do you want to continue for bank verification
+                </div>
+            </div>
+        </mat-dialog-content>
+
+        <mat-dialog-actions>
+            <button class="mat-raised-button" mat-button class="btn-primary">Confirm Payment</button>
+            <button class="mat-raised-button" mat-button class="btn-danger">Cancel</button>
+        </mat-dialog-actions>
+
+
+    </div>
+</div>

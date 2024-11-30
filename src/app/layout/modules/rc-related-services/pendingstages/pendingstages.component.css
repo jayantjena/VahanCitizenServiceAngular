@@ -1,0 +1,74 @@
+  .step-indicator {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .step-indicator .step-icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #c2c2c2;
+    font-size: 10px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    line-height: 50px;
+    font-size: 20px;
+    bottom: 30px;
+  }
+   
+  .step.active .step-icon {
+    background: rgb(97, 89, 90);
+  }
+  
+  .step a {
+    text-align: center;
+    position: absolute;
+    bottom: -45px;
+    color: #c2c2c2;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .step.active a {
+    color: crimson;
+  }
+   
+  .indicator-line {
+    width: 100%;
+    height: 2px;
+    background: #c2c2c2;
+    flex: 1;
+  }
+  .indicator-line ul li::before{
+   display: none;
+  }
+  .indicator-line ul li::after{
+    display: none;
+   }
+  .indicator-line.active {
+    background: crimson;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .step p {
+      font-size: 11px;
+      bottom: -20px;
+    }
+  }
+
+
+
+
+  
+ 
